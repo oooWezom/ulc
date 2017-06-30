@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:id="@+id/activity_game_player_info_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_game_user_info_gradient"
+        android:paddingLeft="@dimen/content_margin"
+        android:paddingRight="@dimen/content_margin">
+
+        <com.pkmmte.view.CircularImageView
+            android:id="@+id/activity_game_left_avatar_image"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentLeft="true"
+            android:layout_marginRight="@dimen/indent_small"
+            android:layout_centerVertical="true"
+            android:src="@drawable/bg_avatar_big_placeholder"
+            app:border="true"
+            app:border_color="@color/mdtp_white"
+            app:border_width="2dp"
+            app:shadow="true" />
+
+        <TextView
+            android:id="@+id/activity_game_left_name_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/activity_game_left_avatar_image"
+            android:textAppearance="@style/TextAppearance.AppCompat.Title"
+            android:textColor="@color/color_white"
+            android:textSize="14sp"
+            tools:text="Kappa" />
+
+        <TextView
+            android:id="@+id/activity_game_left_level_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/activity_game_left_name_text"
+            android:layout_toRightOf="@id/activity_game_left_avatar_image"
+            android:textSize="12sp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Subhead.Inverse"
+            tools:text="Kappa" />
+
+        <com.pkmmte.view.CircularImageView
+            android:id="@+id/activity_game_right_avatar_image"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/indent_small"
+            android:src="@drawable/bg_avatar_big_placeholder"
+            app:border="true"
+            app:border_color="@color/mdtp_white"
+            app:border_width="2dp"
+            app:shadow="true" />
+
+        <TextView
+            android:id="@+id/activity_game_right_name_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:layout_toLeftOf="@id/activity_game_right_avatar_image"
+            android:textAppearance="@style/TextAppearance.AppCompat.Title"
+            android:textColor="@color/color_white"
+            tools:text="Kappa" />
+
+        <TextView
+            android:id="@+id/activity_game_right_level_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:layout_below="@id/activity_game_left_name_text"
+            android:layout_toLeftOf="@id/activity_game_right_avatar_image"
+            android:textAppearance="@style/TextAppearance.AppCompat.Subhead.Inverse"
+            tools:text="Kappa" />
+
+    </RelativeLayout>
+
+    <RatingBar
+        android:id="@+id/activity_game_left_player_wins_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/activity_game_player_info_layout"
+        android:layout_marginLeft="@dimen/content_margin"
+        android:isIndicator="true"
+        android:numStars="0"
+        android:progressDrawable="@drawable/ic_game_hearts_white"
+        android:visibility="gone" />
+
+    <RatingBar
+        android:id="@+id/activity_game_right_player_wins_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/activity_game_player_info_layout"
+        android:layout_marginRight="@dimen/content_margin"
+        android:isIndicator="true"
+        android:numStars="0"
+        android:progressDrawable="@drawable/ic_game_hearts_white"
+        android:visibility="gone" />
+
+</RelativeLayout>

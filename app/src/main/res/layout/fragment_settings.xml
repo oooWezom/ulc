@@ -1,0 +1,684 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/list_background_color"
+    android:clickable="false">
+
+    <include
+        android:id="@+id/fragment_setting_toolbar"
+        layout="@layout/toolbar"/>
+
+    <android.support.design.widget.CoordinatorLayout
+        android:id="@+id/fragment_settings_coordinator"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/fragment_setting_toolbar">
+
+        <android.support.design.widget.AppBarLayout
+            android:id="@+id/fragment_profile_appbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:elevation="0dp">
+
+            <android.support.design.widget.CollapsingToolbarLayout
+                android:id="@+id/fragment_profile_collapsing_toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:theme="@style/ThemeOverlay.AppCompat.Dark"
+                app:contentScrim="@color/color_white"
+                app:layout_scrollFlags="scroll">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/user_profile_background_image_height">
+
+                    <TextView
+                        android:id="@+id/fragment_profile_warning_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:background="@color/color_black"
+                        android:gravity="center"
+                        android:paddingBottom="@dimen/warning_text_padding_top_bottom"
+                        android:paddingTop="@dimen/warning_text_padding_top_bottom"
+                        android:textColor="@color/color_white"
+                        android:visibility="gone"
+                        app:layout_scrollFlags="scroll"/>
+
+                    <ImageView
+                        android:id="@+id/fragment_preference_background_image"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop"
+                        android:src="@color/colorPrimary"/>
+
+                    <ImageView
+                        android:id="@+id/fragment_profile_background_image"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_below="@id/fragment_profile_warning_text"
+                        android:scaleType="centerCrop"/>
+
+                    <RelativeLayout
+                        android:id="@+id/fragment_profile_user_up_bar"
+                        android:layout_width="match_parent"
+                        android:layout_height="?actionBarSize"
+                        android:background="@drawable/shape_tint_vertical_gradient">
+
+                        <ImageView
+                            android:id="@+id/fragment_setting_background_change_button"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginEnd="@dimen/content_margin"
+                            android:src="@drawable/ic_camera"/>
+                    </RelativeLayout>
+
+                    <TextView
+                        android:id="@+id/fragment_preference_name_text"
+                        fontPath="fonts/myriadpro_regular.otf"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/content_margin"
+                        android:padding="@dimen/indent_medium"
+                        android:text="KAPPA"
+                        android:textColor="@color/color_white"
+                        android:textSize="16sp"/>
+
+                </RelativeLayout>
+
+            </android.support.design.widget.CollapsingToolbarLayout>
+        </android.support.design.widget.AppBarLayout>
+
+        <android.support.v4.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="@dimen/indent_medium"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/color_white"
+                android:orientation="vertical"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+                <LinearLayout
+                    android:id="@+id/fragment_preference_about_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/fragment_preference_element_padding">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/about"
+                        android:textColor="@color/list_header_text_color"
+                        android:textSize="16sp"
+                        app:fontPath="fonts/helveticaneuecyr_roman.ttf"/>
+
+                    <EditText
+                        android:id="@+id/fragment_preference_about_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        android:lineSpacingMultiplier="1.25"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                        app:fontPath="fonts/helveticaneuecyr_roman.ttf"
+                        tools:text="Once you go Kappa you never go back"/>
+                </LinearLayout>
+
+                <!--TODO:delete this shit-->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/list_divider_color"/>
+
+                <com.balysv.materialripple.MaterialRippleLayout
+                    android:visibility="gone"
+                    android:id="@+id/fragment_preference_url_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:mrl_rippleColor="@color/colorTextInactive"
+                    app:mrl_rippleDimension="@dimen/ripple_size"
+                    app:mrl_rippleHover="true"
+                    app:mrl_rippleOverlay="true">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/fragment_preference_element_padding">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="CHANGE API URL"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+                            app:fontPath="fonts/helveticaneuecyr_roman.ttf"/>
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/ic_next"/>
+
+                    </RelativeLayout>
+                </com.balysv.materialripple.MaterialRippleLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/list_divider_color"/>
+                <!---->
+
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/fragment_preference_separator_height"
+                    android:background="@drawable/bg_line_divider"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/list_background_color"
+                    android:paddingBottom="@dimen/indent_small"
+                    android:paddingLeft="@dimen/indent_medium"
+                    android:paddingTop="@dimen/indent_small"
+                    android:textAllCaps="true"
+                    android:text="@string/account"
+                    android:textColor="@color/list_header_text_color"
+                    android:textSize="14sp"/>
+
+                <com.balysv.materialripple.MaterialRippleLayout
+                    android:id="@+id/fragment_settings_login_ripple_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:mrl_rippleColor="@color/colorTextInactive"
+                    app:mrl_rippleDimension="@dimen/ripple_size"
+                    app:mrl_rippleHover="true"
+                    app:mrl_rippleOverlay="true">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:padding="@dimen/fragment_preference_element_padding">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/fragment_preference_login"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+                            app:fontPath="fonts/helveticaneuecyr_roman.ttf"/>
+
+                        <TextView
+                            android:id="@+id/fragment_preference_login_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:drawablePadding="@dimen/indent_small"
+                            android:drawableRight="@drawable/ic_next"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+                            android:textColor="@color/list_header_text_color"
+                            app:fontPath="fonts/helveticaneuecyr_roman.ttf"
+                            tools:text="crazyserega1994@mail.ru"/>
+
+                    </RelativeLayout>
+                </com.balysv.materialripple.MaterialRippleLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/fragment_background_color"/>
+
+                <com.balysv.materialripple.MaterialRippleLayout
+                    android:id="@+id/fragment_settings_password_ripple_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:mrl_rippleColor="@color/colorTextInactive"
+                    app:mrl_rippleDimension="@dimen/ripple_size"
+                    app:mrl_rippleHover="true"
+                    app:mrl_rippleOverlay="true">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:padding="@dimen/fragment_preference_element_padding">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/change_password"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+                            app:fontPath="fonts/helveticaneuecyr_roman.ttf"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:drawablePadding="@dimen/indent_small"
+                            android:drawableRight="@drawable/ic_next"
+                            android:text="@string/change"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+                            android:textColor="@color/list_header_text_color"
+                            app:fontPath="fonts/helveticaneuecyr_roman.ttf"/>
+
+                    </RelativeLayout>
+                </com.balysv.materialripple.MaterialRippleLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/fragment_background_color"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/fragment_preference_element_padding">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:text="@string/private_account"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+                            app:fontPath="fonts/helveticaneuecyr_roman.ttf"/>
+
+                        <android.support.v7.widget.SwitchCompat
+                            android:id="@+id/fragment_preference_private_account_switch"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            app:theme="@style/ColorSwitchStyle"/>
+
+                    </RelativeLayout>
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/list_background_color"
+                    android:lineSpacingMultiplier="1.25"
+                    android:paddingBottom="@dimen/indent_large"
+                    android:paddingLeft="@dimen/indent_small"
+                    android:paddingRight="@dimen/indent_small"
+                    android:paddingTop="@dimen/indent_small"
+                    android:text="@string/private_account_caption"
+                    android:textColor="@color/list_header_text_color"
+                    android:textSize="12sp"
+                    app:fontPath="fonts/helveticaneuecyr_roman.ttf"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/list_background_color"
+                    android:paddingBottom="@dimen/indent_small"
+                    android:paddingLeft="@dimen/indent_medium"
+                    android:text="@string/region_cap"
+                    android:textColor="@color/list_header_text_color"
+                    android:textSize="14sp"
+                    app:fontPath="fonts/helveticaneuecyr_roman.ttf"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/list_divider_color"/>
+
+                <com.balysv.materialripple.MaterialRippleLayout
+                    android:id="@+id/fragment_preference_language_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:mrl_rippleColor="@color/colorTextInactive"
+                    app:mrl_rippleDimension="@dimen/ripple_size"
+                    app:mrl_rippleHover="true"
+                    app:mrl_rippleOverlay="true">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/indent_medium">
+
+                        <TextView
+                            android:id="@+id/fragment_setting_language_title_text_view"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/language"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+                            app:fontPath="fonts/helveticaneuecyr_roman.ttf"/>
+
+                        <TextView
+                            android:id="@+id/fragment_setting_languages_text_view"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:gravity="right"
+                            android:layout_toRightOf="@+id/fragment_setting_language_title_text_view"
+                            android:drawablePadding="@dimen/indent_small"
+                            android:drawableRight="@drawable/ic_next"
+                            android:paddingLeft="@dimen/indent_medium"
+                            android:singleLine="true"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+                            android:textColor="@color/list_header_text_color"
+                            app:fontPath="fonts/helveticaneuecyr_roman.ttf"/>
+                    </RelativeLayout>
+                </com.balysv.materialripple.MaterialRippleLayout>
+
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/list_divider_color"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/list_background_color"
+                    android:paddingBottom="@dimen/indent_small"
+                    android:paddingLeft="@dimen/indent_medium"
+                    android:paddingTop="@dimen/indent_medium"
+                    android:text="@string/gender"
+                    android:textColor="@color/list_header_text_color"
+                    android:textSize="14sp"
+                    app:fontPath="fonts/helveticaneuecyr_roman.ttf"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/list_divider_color"/>
+
+                <LinearLayout
+                    android:id="@+id/fragment_preference_gender_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <android.support.design.widget.TabLayout
+                        android:id="@+id/fragment_setting_gender_tab_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:textSize="18sp"
+                        app:fontPath="fonts/helveticaneuecyr_roman.ttf"
+                        app:tabGravity="center"
+                        app:tabIndicatorColor="@color/colorPrimary"
+                        app:tabIndicatorHeight="4dp"
+                        app:tabMode="fixed"
+                        app:tabSelectedTextColor="@color/color_black"
+                        app:tabTextColor="@color/color_black"/>
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/list_divider_color"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/fragment_preference_separator_height"
+                    android:background="@drawable/bg_line_divider"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/list_divider_color"/>
+
+                <com.balysv.materialripple.MaterialRippleLayout
+                    android:id="@+id/fragment_preference_black_list_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:mrl_rippleColor="@color/colorTextInactive"
+                    app:mrl_rippleDimension="@dimen/ripple_size"
+                    app:mrl_rippleHover="true"
+                    app:mrl_rippleOverlay="true">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:padding="@dimen/indent_medium">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/black_list"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+                            app:fontPath="fonts/helveticaneuecyr_roman.ttf"/>
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/ic_next"/>
+
+                    </RelativeLayout>
+
+                </com.balysv.materialripple.MaterialRippleLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/list_divider_color"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/fragment_preference_separator_height"
+                    android:background="@drawable/bg_line_divider"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/list_divider_color"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/fragment_preference_element_padding">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:text="@string/push_notifications"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+                            app:fontPath="fonts/helveticaneuecyr_roman.ttf"/>
+
+                        <android.support.v7.widget.SwitchCompat
+                            android:id="@+id/fragment_preference_push_notifications_switch"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            app:theme="@style/ColorSwitchStyle"/>
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/list_divider_color"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/fragment_preference_separator_height"
+                    android:background="@drawable/bg_line_divider"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/list_divider_color"/>
+
+                <com.balysv.materialripple.MaterialRippleLayout
+                    android:id="@+id/fragment_preference_terms_and_conditions"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:mrl_rippleColor="@color/colorTextInactive"
+                    app:mrl_rippleDimension="@dimen/ripple_size"
+                    app:mrl_rippleHover="true"
+                    app:mrl_rippleOverlay="true">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/fragment_preference_element_padding">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/terms_and_conditions"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+                            app:fontPath="fonts/helveticaneuecyr_roman.ttf"/>
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/ic_next"/>
+
+                    </RelativeLayout>
+                </com.balysv.materialripple.MaterialRippleLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/list_divider_color"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/fragment_preference_separator_height"
+                    android:background="@drawable/bg_line_divider"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/list_divider_color"/>
+
+                <com.balysv.materialripple.MaterialRippleLayout
+                    android:id="@+id/fragment_preference_logout_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:mrl_rippleColor="@color/colorTextInactive"
+                    app:mrl_rippleDimension="@dimen/ripple_size"
+                    app:mrl_rippleHover="true"
+                    app:mrl_rippleOverlay="true">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/fragment_preference_element_padding">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/logout"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+                            app:fontPath="fonts/helveticaneuecyr_roman.ttf"/>
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/ic_next"/>
+
+                    </RelativeLayout>
+                </com.balysv.materialripple.MaterialRippleLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/list_divider_color"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/fragment_preference_separator_height"
+                    android:background="@drawable/bg_line_divider"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/list_divider_color"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/fragment_preference_element_padding"
+                    android:id="@+id/fragment_preference_is_dev_container">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:text="is dev?"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+                            app:fontPath="fonts/helveticaneuecyr_roman.ttf"/>
+
+                        <android.support.v7.widget.SwitchCompat
+                            android:id="@+id/fragment_preference_serv_switch"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            app:theme="@style/ColorSwitchStyle"/>
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/list_divider_color"/>
+            </LinearLayout>
+        </android.support.v4.widget.NestedScrollView>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/indent_medium"
+            app:layout_anchorGravity="left"
+            app:layout_behavior="com.wezom.ulcv2.ui.behaviours.AvatarBehavior">
+
+            <com.pkmmte.view.CircularImageView
+                android:id="@+id/fragment_preference_avatar_image"
+                android:layout_width="130dp"
+                android:layout_height="130dp"
+                android:layout_marginLeft="@dimen/fragment_profile_avatar_margin_left"
+                android:layout_marginTop="@dimen/fragment_settings_avatar_margin_top"
+                android:src="@drawable/com_facebook_profile_picture_blank_portrait"
+                app:border="true"
+                app:border_color="@color/mdtp_white"
+                app:border_width="4dp"
+                app:shadow="true"/>
+
+        </FrameLayout>
+    </android.support.design.widget.CoordinatorLayout>
+</RelativeLayout>

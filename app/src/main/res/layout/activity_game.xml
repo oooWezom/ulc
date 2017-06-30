@@ -1,0 +1,248 @@
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                                 xmlns:app="http://schemas.android.com/apk/res-auto"
+                                                 xmlns:tools="http://schemas.android.com/tools"
+                                                 android:id="@+id/activity_game_root"
+                                                 android:layout_width="match_parent"
+                                                 android:layout_height="match_parent"
+                                                 android:keepScreenOn="true">
+
+    <android.support.percent.PercentRelativeLayout
+        android:id="@+id/activity_game_sub_root"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:id="@+id/activity_game_chat_recycler_portrait_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentBottom="true"
+            android:background="@color/color_white"
+            app:layout_heightPercent="63%">
+
+            <RelativeLayout
+                android:id="@+id/game_activity_chat_header"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_gravity="bottom"
+                android:background="@color/color_white_panel">
+
+                <TextView
+                    android:id="@+id/game_activity_watchers_count_label"
+                    style="@style/AskedQuestionTextStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="@dimen/indent_mini"
+                    android:layout_marginRight="@dimen/indent_small"
+                    android:drawablePadding="@dimen/indent_mini"
+                    android:drawableRight="@drawable/ic_user"
+                    android:text="501"/>
+
+                <TextView
+                    android:id="@+id/textView"
+                    style="@style/AskedQuestionTextStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/game_activity_watchers_count_label"
+                    android:layout_alignBottom="@+id/game_activity_watchers_count_label"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="17dp"
+                    android:text="@string/chat"/>
+            </RelativeLayout>
+
+            <com.wezom.ulcv2.ui.view.ChatView
+                android:id="@+id/game_activity_chat_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/game_activity_chat_header"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="@dimen/indent_medium"
+                android:layout_marginRight="@dimen/indent_medium"/>
+
+        </RelativeLayout>
+
+        <android.support.percent.PercentRelativeLayout
+            android:id="@+id/fragment_session_webcams_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/activity_game_chat_recycler_portrait_layout"
+            android:layout_alignParentTop="true"
+            android:background="@color/color_black">
+
+            <android.support.percent.PercentRelativeLayout
+                android:id="@+id/activity_game_videos_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:gravity="center_horizontal|top"
+                android:orientation="horizontal">
+
+                <com.wezom.ulcv2.common.FixedAspectRatioFrameLayout
+                    android:id="@+id/activity_game_left_webcam_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_gravity="top"
+                    android:layout_weight="1"
+                    app:layout_widthPercent="50%"
+                    app:webCamAlign="left"
+                    app:webCamMode="game"
+                    tools:background="@color/mdtp_accent_color_dark"/>
+
+                <com.wezom.ulcv2.common.FixedAspectRatioFrameLayout
+                    android:id="@+id/fragment_session_right_webcam_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_gravity="top"
+                    android:layout_weight="1"
+                    app:layout_widthPercent="50%"
+                    app:webCamAlign="right"
+                    app:webCamMode="game"
+                    tools:background="@color/mdtp_red"/>
+
+                <com.wezom.ulcv2.ui.views.ExecutionView
+                    android:id="@+id/activity_game_right_execution_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_alignBottom="@+id/activity_game_left_webcam_layout"
+                    android:layout_alignStart="@+id/fragment_session_right_webcam_layout"
+                    android:layout_below="@+id/fragment_session_right_webcam_layout"
+                    android:layout_toEndOf="@+id/fragment_session_right_webcam_layout"
+                    android:background="@color/color_white"
+                    android:gravity="center_vertical"/>
+
+                <com.wezom.ulcv2.ui.views.ExecutionView
+                    android:id="@+id/activity_game_left_execution_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_alignBottom="@+id/fragment_session_right_webcam_layout"
+                    android:layout_alignEnd="@+id/activity_game_left_webcam_layout"
+                    android:layout_alignParentStart="true"
+                    android:layout_below="@+id/activity_game_left_webcam_layout"
+                    android:layout_toStartOf="@+id/activity_game_right_execution_view"
+                    android:background="@color/color_white"
+                    android:gravity="center_vertical"/>
+
+                <RelativeLayout
+                    android:id="@+id/activity_game_control_and_game_layout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_below="@+id/activity_game_right_execution_view">
+
+                    <RelativeLayout
+                        android:id="@+id/activity_game_game_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/color_white"/>
+
+                    <com.wezom.ulcv2.ui.views.GameMessageBoard
+                        android:id="@+id/game_activity_message_board"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"/>
+
+                    <RelativeLayout
+                        android:id="@+id/game_activity_control_stream_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/game_activity_controls_panel_height"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentStart="true"
+                        android:background="@drawable/bg_game_control_layout_gradient">
+
+                        <TextView
+                            android:id="@+id/game_activity_next_text_view"
+                            style="@style/PlayTitleTextStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:layout_margin="@dimen/indent_small"
+                            android:background="@drawable/selector_bg_transparent"
+                            android:drawableEnd="@drawable/ic_next_black"
+                            android:drawablePadding="@dimen/indent_small"
+                            android:text="@string/next"
+                            android:textSize="16sp"/>
+
+                        <TextView
+                            android:id="@+id/game_activity_leave_text_view"
+                            style="@style/PlayTitleTextStyle"
+                            android:layout_alignBaseline="@+id/game_activity_next_text_view"
+                            android:layout_alignBottom="@+id/game_activity_next_text_view"
+                            android:layout_alignParentStart="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="@dimen/indent_small"
+                            android:layout_marginRight="@dimen/indent_small"
+                            android:background="@drawable/selector_bg_transparent"
+                            android:drawablePadding="@dimen/indent_small"
+                            android:drawableStart="@drawable/ic_leave_black"
+                            android:gravity="center_vertical"
+                            android:text="@string/leave"
+                            android:textSize="16sp"/>
+                    </RelativeLayout>
+
+                </RelativeLayout>
+
+            </android.support.percent.PercentRelativeLayout>
+
+        </android.support.percent.PercentRelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/game_activity_real_input_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/color_white"
+            android:clickable="true"
+            android:paddingEnd="@dimen/indent_small"
+            android:paddingStart="@dimen/indent_small"
+            android:visibility="gone"
+            app:layout_marginTopPercent="40%"
+            tools:visibility="gone">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/indent_small"
+                android:layout_marginTop="@dimen/indent_small"
+                android:background="@color/chat_input_color">
+
+                <EditText
+                    android:id="@+id/game_activity_real_input"
+                    style="@style/ChatEditTextStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_toStartOf="@+id/game_activity_real_send_text_view"
+                    android:imeOptions="flagNoExtractUi"
+                    android:padding="@dimen/view_chat_message_edit_text_padding"/>
+
+                <TextView
+                    android:id="@+id/game_activity_real_send_text_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@id/game_activity_real_input"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignTop="@id/game_activity_real_input"
+                    android:layout_marginEnd="@dimen/view_chat_send_text_view_margin_end"
+                    android:gravity="center"
+                    android:text="@string/send"
+                    android:textAllCaps="true"
+                    android:textColor="@color/color_white"
+                    android:textSize="@dimen/view_chat_send_text_view_text_size"/>
+            </RelativeLayout>
+        </RelativeLayout>
+
+        <include layout="@layout/view_error"/>
+
+        <include layout="@layout/view_empty"/>
+    </android.support.percent.PercentRelativeLayout>
+
+    <include
+        android:id="@+id/loadingView"
+        layout="@layout/loading_view"
+        android:visibility="gone"/>
+
+</android.support.design.widget.CoordinatorLayout>

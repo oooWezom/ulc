@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingTop="@dimen/view_webcam_padding_top"
+                tools:background="@color/color_gray">
+
+    <com.pkmmte.view.CircularImageView
+        android:id="@+id/talk_webcam_view_avatar_image_view"
+        android:layout_width="@dimen/view_webcam_avatar_image_view_width"
+        android:layout_height="@dimen/view_webcam_avatar_image_view_width"
+        android:layout_marginEnd="@dimen/view_webcam_avatar_image_view_margin_end"
+        android:layout_marginStart="@dimen/view_webcam_margin_start_end"
+        app:border="true"
+        app:border_color="@color/color_white"
+        app:border_width="@dimen/view_webcam_avatar_image_view_border_width"
+        app:shadow="true"
+        tools:src="@drawable/ic_default_user_avatar"/>
+
+    <TextView
+        android:id="@+id/talk_webcam_view_username_text_view"
+        style="@style/WebCamNameTextStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/view_webcam_username_text_view_margin_bottom"
+        android:layout_toEndOf="@id/talk_webcam_view_avatar_image_view"
+        android:text="Username"/>
+
+    <TextView
+        android:id="@+id/talk_webcam_view_level_text_view"
+        style="@style/WebCamLevelTextStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/talk_webcam_view_username_text_view"
+        android:layout_toEndOf="@id/talk_webcam_view_avatar_image_view"
+        android:text="100 |v|"/>
+
+
+</RelativeLayout>

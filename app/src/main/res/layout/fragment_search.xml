@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:id="@+id/fragment_search_root"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/color_white">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/fragment_filter_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:background="@color/color_white"
+        android:elevation="4dp"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="@style/ToolbarTheme"
+        app:fontPath="fonts/helveticaneuecyr_medium.ttf"
+        tools:visibility="visible">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingStart="@dimen/indent_medium"
+            android:paddingEnd="@dimen/indent_medium">
+
+            <EditText
+                android:id="@+id/fragment_search_toolbar_search_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toStartOf="@+id/fragment_search_toolbar_clear"
+                android:background="@android:color/transparent"
+                android:hint="@string/search"
+                android:textCursorDrawable="@null"/>
+
+            <ImageView
+                android:id="@+id/fragment_search_toolbar_clear"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/selector_bg_click_tint"
+                android:src="@drawable/ic_delete"/>
+        </RelativeLayout>
+
+    </android.support.v7.widget.Toolbar>
+
+    <FrameLayout
+        android:id="@+id/fragment_search_parameters_show"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/fragment_search_field_height"
+        android:layout_below="@+id/fragment_filter_toolbar"
+        android:background="@color/color_white">
+
+        <TextView
+            android:id="@+id/fragment_search_options_show_text"
+            style="@style/Text.PrimaryColor"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="@dimen/indent_medium"
+            android:drawablePadding="@dimen/indent_small"
+            android:padding="@dimen/content_margin"
+            android:text="@string/parameters"
+            app:fontPath="fonts/helveticaneuecyr_medium.ttf"/>
+
+        <ImageView
+            android:id="@+id/fragment_search_parameters_indicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|center_vertical"
+            android:layout_marginEnd="@dimen/indent_medium"
+            android:src="@drawable/ic_arrow_down"/>
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/fragment_search_parameters_show"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="@dimen/indent_mini">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/contentView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingLeft="@dimen/content_margin"
+            android:paddingRight="@dimen/content_margin"
+            tools:listitem="@layout/view_search_item"/>
+
+        <include
+            android:id="@+id/errorView"
+            layout="@layout/view_error"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"/>
+
+        <ProgressBar
+            android:id="@+id/loadingView"
+            style="@style/Widget.AppCompat.ProgressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="gone"
+            android:theme="@style/CircularProgress"/>
+
+        <TextView
+            android:id="@+id/emptyView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:textAppearance="@style/EmptyTextView"
+            tools:text="Ничего не найдено"
+            tools:visibility="visible"/>
+
+    </FrameLayout>
+
+    <LinearLayout
+        android:id="@+id/fragment_search_options_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/fragment_search_parameters_show"
+        android:background="@color/color_white"
+        android:clickable="true"
+        android:orientation="vertical"
+        android:visibility="gone"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/fragment_search_field_height"
+            android:background="@color/color_pressed_button_tint"
+            android:gravity="center_vertical"
+            android:paddingLeft="@dimen/fragment_search_padding_left_right"
+            android:paddingRight="@dimen/fragment_search_padding_left_right">
+
+            <TextView
+                android:id="@+id/fragment_search_status_label"
+                style="@style/SearchFieldNameTextAppearanceLabel"
+                android:textAllCaps="true"
+                android:text="@string/status_cap"/>
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/fragment_search_field_height"
+            android:paddingLeft="@dimen/fragment_search_padding_left_right"
+            android:paddingRight="@dimen/fragment_search_padding_left_right">
+
+            <TextView
+                android:id="@+id/fragment_search_status_label2"
+                style="@style/SearchFieldNameTextAppearance"
+                android:layout_centerVertical="true"
+                android:text="@string/status"/>
+
+            <Spinner
+                android:id="@+id/fragment_search_status_spinner"
+                android:layout_width="@dimen/fragment_search_spinner_width"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:entries="@array/statuses"/>
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/fragment_search_field_height"
+            android:background="@color/color_pressed_button_tint"
+            android:gravity="center_vertical"
+            android:paddingLeft="@dimen/fragment_search_padding_left_right"
+            android:paddingRight="@dimen/fragment_search_padding_left_right">
+
+            <TextView
+                android:id="@+id/fragment_search_region_label"
+                style="@style/SearchFieldNameTextAppearanceLabel"
+                android:text="@string/region_cap"/>
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/fragment_search_field_height"
+            android:paddingLeft="@dimen/fragment_search_padding_left_right"
+            android:paddingRight="@dimen/fragment_search_padding_left_right">
+
+            <TextView
+                style="@style/SearchFieldNameTextAppearance"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="@dimen/indent_medium"
+                android:text="@string/region"/>
+
+            <Spinner
+                android:id="@+id/fragment_search_region_spinner"
+                android:layout_width="@dimen/fragment_search_spinner_width"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:entries="@array/regions"/>
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/fragment_search_field_height"
+            android:background="@color/color_pressed_button_tint"
+            android:gravity="center_vertical"
+            android:paddingLeft="@dimen/fragment_search_padding_left_right"
+            android:paddingRight="@dimen/fragment_search_padding_left_right">
+
+            <TextView
+                android:id="@+id/fragment_search_sex"
+                style="@style/SearchFieldNameTextAppearanceLabel"
+                android:textAllCaps="true"
+                android:text="@string/sex_cap"/>
+        </LinearLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/fragment_search_field_height"
+            android:paddingLeft="@dimen/fragment_search_padding_left_right"
+            android:paddingRight="@dimen/fragment_search_padding_left_right">
+
+            <android.support.design.widget.TabLayout
+                android:id="@+id/fragment_search_sex_tabLayout"
+                style="@style/TabLayoutStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:background="?attr/colorPrimary"/>
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/fragment_search_field_height"
+            android:background="@color/color_pressed_button_tint"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingLeft="@dimen/fragment_search_padding_left_right"
+            android:paddingRight="@dimen/fragment_search_padding_left_right">
+
+            <TextView
+                android:id="@+id/fragment_search_level"
+                style="@style/SearchFieldNameTextAppearanceLabel"
+                android:textAllCaps="true"
+                android:text="@string/level_cap"/>
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingLeft="@dimen/fragment_search_padding_left_right"
+            android:paddingRight="@dimen/fragment_search_padding_left_right">
+
+            <com.wezom.ulcv2.ui.view.RangeSeekBar
+                android:id="@+id/fragment_search_level_range"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="@dimen/fragment_search_rangebar_margin"
+                tools:background="@color/colorPrimary"/>
+
+            <TextView
+                android:id="@+id/fragment_search_level_text"
+                style="@style/SearchFieldNameTextAppearanceLabel"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                tools:text="18-28"/>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/fragment_search_options_layout"
+        android:src="@drawable/shadow_2"/>
+</RelativeLayout>

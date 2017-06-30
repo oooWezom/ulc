@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/fragment_2play_background"
+                tools:context=".ui.activity.HomeActivity">
+
+    <include
+        android:id="@+id/fragment_session_info_toolbar"
+        layout="@layout/toolbar"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/fragment_session_info_toolbar"
+        android:layout_centerHorizontal="true"
+        android:orientation="vertical">
+
+        <View
+            android:id="@+id/center"
+            android:layout_width="1dp"
+            android:layout_height="1dp"
+            android:layout_centerInParent="true"/>
+
+        <RelativeLayout
+            android:id="@+id/fragment_session_info_header_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/fragment_session_info_event_view"
+            android:background="@color/color_black">
+
+            <FrameLayout
+                android:id="@+id/view_active_talk_image_container"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true">
+
+                <com.google.android.exoplayer.AspectRatioFrameLayout
+                    android:id="@+id/iew_active_talk_video_frame"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center">
+
+                <SurfaceView
+                    android:id="@+id/iew_active_talk_surface_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"/>
+                </com.google.android.exoplayer.AspectRatioFrameLayout>
+
+                <com.wezom.ulcv2.ui.views.VideoPlayerMediaController
+                    android:id="@+id/fragment_session_info_video_controller"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            </FrameLayout>
+        </RelativeLayout>
+
+        <com.wezom.ulcv2.ui.view.EventItemView
+            android:id="@+id/fragment_session_info_event_view"
+            android:layout_width="match_parent"
+            android:layout_height="76dp"
+            android:layout_below="@+id/center"/>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/fragment_session_info_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/fragment_session_info_event_view"
+            android:paddingTop="@dimen/indent_medium"
+            tools:listitem="@layout/view_user_item"/>
+    </RelativeLayout>
+
+</RelativeLayout>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:id="@+id/view_toggle_button_root"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/selector_bg_user_profile_action_button"
+                tools:background="@color/colorPrimary"
+                tools:context=".ui.activity.HomeActivity">
+
+    <TextView
+        android:id="@+id/view_toggle_button_text"
+        style="@style/ProfileActionsText"
+        android:layout_centerVertical="true"
+        android:layout_toStartOf="@+id/view_toggle_button_icon"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:text="@string/follow"/>
+
+    <ImageView
+        android:id="@+id/view_toggle_button_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="@dimen/indent_small"
+        android:src="@drawable/ic_profile_follow"/>
+</RelativeLayout>

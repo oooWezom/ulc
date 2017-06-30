@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/list_background_color"
+              android:orientation="vertical">
+
+    <include
+        android:id="@+id/fragment_change_login_toolbar"
+        layout="@layout/toolbar"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/indent_large"
+        android:paddingBottom="@dimen/indent_small"
+        android:paddingLeft="@dimen/indent_medium"
+        android:paddingTop="@dimen/indent_medium"
+        android:text="@string/change_login"
+        android:textColor="@color/item_header_text_color"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/nav_divider_size"
+        android:layout_alignParentTop="true"
+        android:background="@color/list_divider_color"/>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                  xmlns:tools="http://schemas.android.com/tools"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:background="@color/color_white"
+                  android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/fragment_change_login_new_login_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/view_newsfeed_image_view"
+            android:layout_marginLeft="@dimen/indent_large"
+            android:layout_toRightOf="@+id/view_newsfeed_image_view"
+            android:orientation="horizontal"
+            android:paddingBottom="@dimen/indent_medium"
+            android:paddingTop="@dimen/indent_medium">
+
+            <TextView
+                android:id="@+id/view_login_new_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/new_login"
+                android:textColor="@color/color_black"
+                android:textSize="14sp"
+                app:fontPath="fonts/helveticaneuecyr_roman.ttf"/>
+
+            <EditText
+                android:id="@+id/fragment_change_login_new_edit_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/indent_medium"
+                android:layout_marginRight="@dimen/indent_medium"
+                android:background="@null"
+                android:singleLine="true"
+                android:textColor="@color/color_black"
+                android:textSize="14sp"
+                app:fontPath="fonts/helveticaneuecyr_roman.ttf"
+                tools:text="10.rgggggggggggggggggggggggg02.1995"/>
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/nav_divider_size"
+            android:layout_alignLeft="@+id/view_login_new_text"
+            android:layout_below="@+id/view_login_new_text"
+            android:layout_marginLeft="@dimen/indent_large"
+            android:alpha="0.4"
+            android:background="@color/list_background_color"/>
+
+        <LinearLayout
+            android:id="@+id/fragment_change_login_pass_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/indent_large"
+            android:orientation="horizontal"
+            android:paddingBottom="@dimen/indent_medium"
+            android:paddingTop="@dimen/indent_medium">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/password"
+                android:textColor="@color/color_black"
+                android:textSize="14sp"
+                app:fontPath="fonts/helveticaneuecyr_roman.ttf"/>
+
+            <EditText
+                android:id="@+id/fragment_change_login_pass_edit_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/indent_medium"
+                android:background="@null"
+                android:inputType="textPassword"
+                android:textColor="@color/color_black"
+                android:textSize="14sp"
+                app:fontPath="fonts/helveticaneuecyr_roman.ttf"
+                tools:text="sdsd"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/nav_divider_size"
+        android:layout_alignParentBottom="true"
+        android:background="@color/list_divider_color"/>
+</LinearLayout>

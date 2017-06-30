@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.AppBarLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/sign_in_app_bar_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:background="@color/color_white"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="@style/ToolbarTheme"
+        app:fontPath="fonts/helveticaneuecyr_medium.ttf">
+
+        <ImageView
+            android:id="@+id/talk_appbar_talk_icon_text_view"
+            android:layout_width="@dimen/talk_appbar_talk_icon_text_view_width"
+            android:layout_height="@dimen/talk_appbar_talk_icon_text_view_width"
+            android:layout_marginEnd="@dimen/talk_appbar_talk_icon_text_view_margin_end"
+            tools:src="@drawable/ic_action_setting"/>
+
+        <TextView
+            android:id="@+id/talk_appbar_talk_title_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="@color/color_black"
+            android:textSize="@dimen/talk_appbar_talk_title_text_view_text_size"
+            tools:text="Session name"/>
+
+    </android.support.v7.widget.Toolbar>
+
+</android.support.design.widget.AppBarLayout>

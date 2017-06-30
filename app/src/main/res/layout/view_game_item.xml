@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:app="http://schemas.android.com/apk/res-auto"
+             xmlns:tools="http://schemas.android.com/tools"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:background="@color/color_white">
+
+    <com.balysv.materialripple.MaterialRippleLayout
+        android:id="@+id/view_game_item_ripple_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:mrl_rippleColor="@color/colorTextInactive"
+        app:mrl_rippleDimension="@dimen/ripple_size"
+        app:mrl_rippleHover="true"
+        app:mrl_rippleOverlay="true">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/color_white"
+            android:padding="@dimen/indent_small">
+
+            <ImageView
+                android:id="@+id/view_game_item_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/indent_large"
+                tools:src="@drawable/ic_choose_random"/>
+
+            <TextView
+                android:id="@+id/view_game_item_title"
+                style="@style/Text.PrimaryColor"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/indent_medium"
+                android:layout_toEndOf="@+id/view_game_item_image"
+                android:text="Test"/>
+
+            <CheckBox
+                android:id="@+id/view_game_item_checkbox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:theme="@style/CheckBoxTheme"
+                android:layout_centerVertical="true"/>
+        </RelativeLayout>
+    </com.balysv.materialripple.MaterialRippleLayout>
+
+</FrameLayout>

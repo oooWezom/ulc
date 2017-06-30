@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+        <TextView
+            style="@style/WebCamNameTextStyle"
+            android:id="@+id/fragment_talk_waiting_participant_username_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/view_webcam_username_text_view_margin_bottom"
+            android:layout_marginEnd="@dimen/view_webcam_username_text_view_margin_end"
+            tools:text="Username"/>
+
+        <TextView
+            style="@style/WebCamLevelTextStyle"
+            android:id="@+id/fragment_talk_waiting_participant_level_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/fragment_talk_waiting_participant_username_text_view"
+            tools:text="100 |v|" />
+
+        <TextView
+            style="@style/WebCamLevelTextStyle"
+            android:id="@+id/fragment_talk_waiting_participant_likes_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/fragment_talk_waiting_participant_level_text_view"
+            android:drawableEnd="@drawable/ic_heart"
+            tools:text="643" />
+
+        <com.wezom.ulcv2.ui.view.RadialProgressView
+            android:id="@+id/fragment_talk_waiting_participant_avatar_radial_progress_view"
+            android:layout_width="@dimen/view_webcam_avatar_image_view_width"
+            android:layout_height="@dimen/view_webcam_avatar_image_view_width"
+            android:layout_toEndOf="@id/fragment_talk_waiting_participant_username_text_view"
+            android:layout_marginStart="@dimen/view_webcam_avatar_image_view_margin_end"
+            tools:src="@drawable/bg_avatar_big_placeholder" />
+
+</RelativeLayout>

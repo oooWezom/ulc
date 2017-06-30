@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.percent.PercentRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="@dimen/view_session_action_top_bottom_padding"
+    android:paddingBottom="@dimen/view_session_action_top_bottom_padding"
+    android:background="@drawable/bg_horizontal_gradient"
+    app:layout_behavior="android.support.design.widget.BottomSheetBehavior">
+
+    <TextView
+        android:id="@+id/session_action_leave_text_view"
+        style="@style/ActionTextStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/session_action_margin_start_end"
+        android:layout_marginEnd="@dimen/session_action_margin_start_end"
+        android:drawableStart="@drawable/ic_action_cancel_white"
+        android:text="@string/leave" />
+
+    <TextView
+        android:id="@+id/session_action_next_text_view"
+        style="@style/ActionTextStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/session_action_margin_start_end"
+        android:layout_toEndOf="@id/session_action_leave_text_view"
+        android:drawableStart="@drawable/ic_action_next_white"
+        android:text="@string/next" />
+
+    <ImageView
+        android:id="@+id/view_session_action_talk_icon_text_view"
+        android:layout_width="@dimen/view_session_action_talk_icon_text_view_width"
+        android:layout_height="@dimen/view_session_action_talk_icon_text_view_width"
+        android:layout_toStartOf="@+id/view_session_action_talk_title_text_view"
+        android:layout_marginEnd="@dimen/view_session_action_talk_icon_text_view_margin_end"
+        tools:src="@drawable/ic_action_setting"/>
+
+    <TextView
+        android:id="@+id/view_session_action_talk_title_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textColor="@color/color_white"
+        android:textSize="@dimen/view_session_action_talk_title_text_view_text_size"
+        app:layout_marginEndPercent="20%"
+        tools:text="Session name"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/session_action_next_text_view"
+        android:layout_marginStart="27dp" />
+
+</android.support.percent.PercentRelativeLayout>

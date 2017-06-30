@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.percent.PercentRelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="@dimen/view_webcam_padding_top"
+    android:background="@color/color_black">
+
+    <RelativeLayout
+        android:id="@+id/view_game_webcam_control_layout"
+        android:layout_width="match_parent"
+        android:background="@drawable/bg_game_user_info_gradient"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/view_webcam_padding_top"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true">
+
+    <com.pkmmte.view.CircularImageView
+        android:id="@+id/view_webcam_avatar_image_view"
+        android:layout_width="@dimen/view_webcam_avatar_image_view_width"
+        android:layout_height="@dimen/view_webcam_avatar_image_view_width"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="@dimen/view_webcam_margin_start_end"
+        android:layout_marginStart="@dimen/view_webcam_avatar_image_view_margin_end"
+        app:border="true"
+        app:border_color="@color/color_white"
+        app:border_width="@dimen/view_webcam_avatar_image_view_border_width"
+        app:shadow="true"
+        tools:src="@drawable/bg_avatar_big_placeholder"/>
+
+    <TextView
+        style="@style/WebCamNameTextStyle"
+        android:id="@+id/view_webcam_username_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toStartOf="@id/view_webcam_avatar_image_view"
+        android:layout_marginStart="@dimen/view_webcam_username_text_view_margin_end"
+        android:layout_marginBottom="@dimen/view_webcam_username_text_view_margin_bottom"
+        tools:text="Username"/>
+
+    <TextView
+        style="@style/WebCamLevelTextStyle"
+        android:id="@+id/view_webcam_level_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toStartOf="@id/view_webcam_avatar_image_view"
+        android:layout_below="@id/view_webcam_username_text_view"
+        tools:text="100 |v|"/>
+    </RelativeLayout>
+
+    <com.wezom.ulcv2.common.FixedAspectRatioFrameLayout
+        android:id="@+id/view_webcam_layout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="@dimen/view_execution_webcam_webcam_layout_margin_bottom"
+        android:background="@color/color_gray"
+        app:layout_widthPercent="100%"
+        app:layout_aspectRatio="133%"/>
+
+    <Switch
+        style="@style/GameButtonStyle"
+        android:id="@+id/view_webcam_done_switch"
+        android:layout_width="@dimen/game_button_width"
+        android:layout_height="@dimen/game_button_height"
+        android:layout_below="@id/view_webcam_layout"
+        android:layout_centerHorizontal="true"
+        android:text="@string/i_am_done"/>
+
+    <com.wezom.ulcv2.ui.views.HeartParticleView
+        android:id="@+id/view_webcam_likes_heart_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/indent_small"
+        android:layout_alignBottom="@id/view_webcam_layout"/>
+
+</android.support.percent.PercentRelativeLayout>

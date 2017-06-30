@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/heart_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:background="@color/color_gray"
+    tools:context="com.wezom.ulcv2.ui.views.LikeLayout">
+
+    <FrameLayout
+        android:id="@+id/heart_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="@dimen/talk_activity_like_margin_bottom_smaller">
+
+        <com.wezom.ulcv2.ui.views.HeartBeatView
+            android:id="@+id/heart_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:padding="@dimen/indent_large"
+            android:src="@drawable/selector_heart" />
+
+        <TextView
+            android:id="@+id/heart_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textColor="@color/color_gray"
+            android:textSize="@dimen/likes_count_text_size"
+            tools:text="999" />
+    </FrameLayout>
+</RelativeLayout>

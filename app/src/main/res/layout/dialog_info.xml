@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:orientation="horizontal"
+              android:layout_width="match_parent"
+              android:background="@color/color_white"
+              android:layout_height="wrap_content">
+    <com.github.siyamed.shapeimageview.CircularImageView
+        android:id="@+id/dialog_invite_image_view"
+        android:layout_width="@dimen/dialog_user_avatar_size"
+        android:layout_height="@dimen/dialog_user_avatar_size"
+        android:layout_alignParentRight="true"
+        android:layout_margin="@dimen/indent_medium"
+        android:src="@drawable/ic_default_user_avatar"
+        app:siBorderColor="@color/colorPrimary"
+        app:siBorderWidth="@dimen/circular_border_padding"/>
+
+    <TextView
+        android:id="@+id/dialog_info_text_view"
+        android:layout_width="match_parent"
+        android:textSize="16sp"
+        android:layout_marginTop="@dimen/indent_medium"
+        tools:text="Username\nrefused"
+        android:layout_height="wrap_content"/>
+</LinearLayout>

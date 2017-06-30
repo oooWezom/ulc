@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:tools="http://schemas.android.com/tools"
+             android:id="@+id/talk_activity_root"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             android:keepScreenOn="true"
+             tools:context=".ui.activity.TalkActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/talk_activity_video_holder"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/talk_activity_chat_fake_placeholder"
+            android:background="@color/color_black"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <FrameLayout
+                android:id="@+id/talk_activity_main_talk_holder"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:background="@color/color_black"
+                android:visibility="gone"
+                tools:visibility="visible"/>
+
+            <FrameLayout
+                android:id="@+id/talk_activity_guest_talk_holder"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:background="@color/color_black"
+                android:visibility="gone"
+                tools:visibility="visible"/>
+
+        </LinearLayout>
+
+        <com.wezom.ulcv2.common.FixedAspectRatioFrameLayout
+            android:id="@+id/talk_activity_fake_video_frame"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true">
+            <include
+                android:id="@+id/talk_activity_loading_view"
+                layout="@layout/loading_view"
+                android:visibility="gone" />
+        </com.wezom.ulcv2.common.FixedAspectRatioFrameLayout>
+
+        <FrameLayout
+            android:id="@+id/talk_activity_messages_holder"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/talk_activity_chat_fake_placeholder"
+            tools:visibility="gone">
+
+            <TextView
+                android:id="@+id/talk_activity_donate_message_label"
+                style="@style/TalkTitleTextStyle"
+                android:layout_gravity="center_horizontal|bottom"
+                android:layout_marginBottom="@dimen/large_margin"
+                android:layout_marginEnd="@dimen/talk_activity_donate_title_margin"
+                android:layout_marginStart="@dimen/talk_activity_donate_title_margin"
+                android:alpha="0.6"
+                android:ellipsize="end"
+                android:maxLength="40"
+                android:maxLines="1"
+                tools:text="donatemessagewwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww"/>
+        </FrameLayout>
+
+        <RelativeLayout
+            android:id="@+id/talk_activity_controls_holder"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/talk_activity_chat_fake_placeholder">
+
+            <ImageView
+                android:id="@+id/talk_activity_add_talk_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginEnd="@dimen/indent_medium"
+                android:layout_marginTop="@dimen/indent_medium"
+                android:src="@drawable/ic_talk_add"
+                android:visibility="gone"
+                tools:visibility="visible"/>
+
+            <LinearLayout
+                android:id="@+id/talk_activity_edit_title_layer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/talk_activity_controls_layout"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="@dimen/indent_medium"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:visibility="gone"
+                tools:visibility="visible">
+
+                <ImageView
+                    android:id="@+id/talk_activity_session_category_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/indent_mini"
+                    tools:src="@drawable/ic_2play"/>
+
+                <TextView
+                    android:id="@+id/talk_activity_talk_title"
+                    style="@style/TalkTitleTextStyle"
+                    android:ellipsize="end"
+                    android:maxLength="16"
+                    android:maxLines="1"
+                    tools:text="Wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww"/>
+
+                <ImageView
+                    android:id="@+id/talk_activity_edit_session_name_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/indent_mini"
+                    android:src="@drawable/ic_edit"
+                    android:visibility="gone"
+                    tools:visibility="visible"/>
+            </LinearLayout>
+
+            <RelativeLayout
+                android:id="@+id/talk_activity_controls_layout"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/talk_activity_controls_panel_height"
+                android:layout_alignParentBottom="true"
+                android:background="@drawable/shape_tint_vertical_gradient_reverse">
+
+                <LinearLayout
+                    android:id="@+id/talk_activity_leave_layer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/selector_bg_transparent"
+                    android:gravity="center"
+                    android:layout_marginStart="@dimen/indent_medium"
+                    android:orientation="horizontal"
+                    android:visibility="gone"
+                    tools:visibility="visible">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_action_cancel_white"/>
+
+                </LinearLayout>
+
+                <FrameLayout
+                    android:id="@+id/talk_activity_next_layer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="@dimen/indent_medium"
+                    android:visibility="gone"
+
+                    tools:visibility="visible">
+
+                    <LinearLayout
+                        android:id="@+id/talk_activity_next_button_layout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/selector_bg_transparent"
+                        android:gravity="center"
+
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_action_next_white"/>
+                    </LinearLayout>
+
+                    <me.zhanghai.android.materialprogressbar.MaterialProgressBar
+                        android:id="@+id/talk_activity_next_button_loading"
+                        style="@style/Widget.MaterialProgressBar.ProgressBar.Small"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:visibility="gone"
+                        tools:background="@color/color_white"
+                        tools:visibility="visible"/>
+                </FrameLayout>
+
+                <LinearLayout
+                    android:id="@+id/activity_talk_donate_message_layer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/indent_medium"
+                    android:layout_centerInParent="true"
+
+                    android:background="@drawable/selector_bg_transparent"
+                    android:gravity="center"
+                    android:visibility="gone"
+                    tools:visibility="visible">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_talk_question"/>
+                </LinearLayout>
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+        <FrameLayout
+            android:id="@+id/talk_activity_chat_fake_placeholder"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/talk_activity_fake_video_frame"
+            android:background="@color/color_white"/>
+
+    </RelativeLayout>
+
+    <FrameLayout
+        android:id="@+id/talk_activity_chat_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <FrameLayout
+            android:id="@+id/talk_activity_chat_placeholder"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:background="#5220ef02" />
+    </FrameLayout>
+
+    <com.wunderlist.slidinglayer.SlidingLayer xmlns:slidingLayer="http://schemas.android.com/apk/res-auto"
+                                              android:id="@+id/talk_activity_sliding_layer"
+                                              android:layout_width="match_parent"
+                                              android:layout_height="match_parent"
+                                              android:layout_marginStart="80dp"
+                                              slidingLayer:changeStateOnTap="true"
+                                              slidingLayer:offsetDistance="0dp"
+                                              slidingLayer:previewOffsetDistance="0dp"
+                                              slidingLayer:stickTo="right"
+                                              tools:visibility="gone"/>
+
+</FrameLayout>

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <com.wezom.ulcv2.ui.view.PlayWebCamView
+        android:id="@+id/fragment_session_left_webcam_layout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_widthPercent="50%"
+        app:layout_heightPercent="80%"
+        app:webCamMode="talk"
+        app:webCamAlign="left" />
+
+    <RelativeLayout
+        android:id="@+id/fragment_talk_webcam_search_layout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_toEndOf="@id/activity_game_left_webcam_layout"
+        app:layout_widthPercent="50%"
+        app:layout_heightPercent="80%">
+
+        <com.wezom.ulcv2.ui.view.SearchParticipantView
+            android:id="@+id/fragment_talk_webcam_search_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+        <RelativeLayout
+            android:id="@+id/fragment_talk_waiting_for_user_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone">
+
+            <com.wezom.ulcv2.ui.view.RadialProgressView
+                android:id="@+id/fragment_talk_waiting_participant_avatar_radial_progress_view"
+                android:layout_width="@dimen/fragment_talk_waiting_participant_avatar_radial_progress_view_width"
+                android:layout_height="@dimen/fragment_talk_waiting_participant_avatar_radial_progress_view_width"
+                android:layout_toStartOf="@+id/fragment_talk_waiting_for_user_text_view"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="@dimen/fragment_talk_waiting_participant_avatar_radial_progress_view_margin_end"/>
+
+            <TextView
+                style="@style/UserSearchTextViewStyle"
+                android:id="@+id/fragment_talk_waiting_for_user_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                tools:text="@string/waiting_for_user_decision"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/fragment_talk_random_search_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone">
+
+            <TextView
+                style="@style/UserSearchTextViewStyle"
+                android:id="@+id/fragment_talk_random_search_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/fragment_talk_random_search_image_view"
+                android:layout_centerHorizontal="true"
+                android:gravity="center"
+                android:textColor="@color/color_white"
+                android:text="@string/searching_for_companion"/>
+
+            <ImageView
+                android:id="@+id/fragment_talk_random_search_image_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="@dimen/fragment_talk_random_user_layout_margin_top"
+                android:layout_marginBottom="@dimen/fragment_talk_random_user_layout_margin_bottom"
+                android:src="@drawable/ic_talk_add"/>
+
+            <Button
+                android:id="@+id/fragment_talk_cancel_random_search_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/fragment_talk_random_search_image_view"
+                android:layout_centerHorizontal="true"
+                android:textSize="@dimen/fragment_talk_cancel_random_search_button_text_size"
+                android:textColor="@color/color_white"
+                android:text="@string/cancel" />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</merge>

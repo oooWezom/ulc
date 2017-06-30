@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_white">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/contentView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/fragment_chat_message_message_layout"
+            tools:listitem="@layout/view_chat_message"/>
+
+        <RelativeLayout
+            android:id="@+id/fragment_chat_message_message_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="@dimen/indent_small"
+            android:layout_alignStart="@id/contentView"
+            android:background="@color/chat_input_color">
+
+                <EditText
+                    android:id="@+id/view_chat_message_edit_text"
+                    style="@style/ChatEditTextStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_toStartOf="@+id/view_chat_send_text_view"
+                    android:imeOptions="flagNoExtractUi"
+                    android:padding="@dimen/view_chat_message_edit_text_padding" />
+
+                <TextView
+                    android:id="@+id/view_chat_send_text_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@id/view_chat_message_edit_text"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignTop="@id/view_chat_message_edit_text"
+                    android:layout_marginEnd="@dimen/view_chat_send_text_view_margin_end"
+                    android:gravity="center"
+                    android:text="@string/send"
+                    android:textAllCaps="true"
+                    android:textColor="@color/color_white"
+                    android:textSize="@dimen/view_chat_send_text_view_text_size" />
+
+        </RelativeLayout>
+</RelativeLayout>

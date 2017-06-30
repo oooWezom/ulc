@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:background="@color/color_gray"
+                tools:context=".ui.activity.HomeActivity">
+
+    <include
+        android:id="@+id/fragment_signup_toolbar"
+        layout="@layout/toolbar"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/fragment_signup_toolbar">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:id="@+id/fragment_signup_error_frame_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/fragment_signup_error_text_view"
+                    android:layout_alignTop="@+id/fragment_signup_error_text_view"
+                    android:alpha="0.5"
+                    android:background="@color/vk_black"/>
+
+                <TextView
+                    android:id="@+id/fragment_signup_error_text_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:padding="@dimen/indent_small"
+                    android:textColor="@color/color_white"
+                    tools:text="ERROR"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/fragment_register_content_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingTop="@dimen/fragment_register_form_padding"
+                android:paddingBottom="@dimen/fragment_register_form_padding">
+
+                <LinearLayout
+                    android:id="@+id/fragment_register_form_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="visible">
+
+                    <com.wezom.ulcv2.ui.view.EditTextView
+                        android:id="@+id/fragment_signup_email_edit_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textEmailAddress"
+                        android:paddingRight="@dimen/fragment_register_form_padding"
+                        app:errorImage="true"
+                        app:hintText="@string/email"
+                        app:inputId="@+id/fragment_signup_email_edit"
+                        app:singleLine="true"/>
+
+                    <com.wezom.ulcv2.ui.view.EditTextView
+                        android:id="@+id/fragment_signup_username_edit_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:maxLength="20"
+                        android:paddingRight="@dimen/fragment_register_form_padding"
+                        app:errorImage="true"
+                        app:hintText="@string/username"
+                        app:inputId="@+id/fragment_signup_username_edit"
+                        app:singleLine="true"/>
+
+                    <com.wezom.ulcv2.ui.view.EditTextView
+                        android:id="@+id/fragment_signup_password_edit_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPassword"
+                        android:maxLength="20"
+                        android:paddingRight="@dimen/fragment_register_form_padding"
+                        app:errorImage="true"
+                        app:hintText="@string/password"
+                        app:inputId="@+id/fragment_signup_password_edit"
+                        app:singleLine="true"/>
+
+                    <com.wezom.ulcv2.ui.view.EditTextView
+                        android:id="@+id/fragment_signup_repeat_password_edit_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPassword"
+                        android:maxLength="20"
+                        android:paddingRight="@dimen/fragment_register_form_padding"
+                        app:errorImage="true"
+                        app:hintText="@string/repeat_password"
+                        app:inputId="@+id/fragment_signup_repeat_password_edit"
+                        app:singleLine="true"/>
+
+                    <RadioGroup
+                        android:id="@+id/fragment_signup_sex_radio_group"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginBottom="@dimen/indent_small"
+                        android:layout_marginTop="@dimen/indent_medium"
+                        android:checkedButton="@+id/fragment_signup_male_radio_button"
+                        android:orientation="horizontal"
+                        android:theme="@style/Signup.Edittext.BlackText">
+
+                        <RadioButton
+                            android:id="@id/fragment_signup_male_radio_button"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bg_segment_left_control_selector"
+                            android:button="@null"
+                            android:paddingBottom="@dimen/indent_small"
+                            android:paddingLeft="@dimen/indent_large"
+                            android:paddingRight="@dimen/indent_large"
+                            android:paddingTop="@dimen/indent_small"
+                            android:text="@string/male"
+                            android:textColor="@drawable/tc_segment_control_selector"
+                            android:textSize="15sp"
+                            android:theme="@style/Signup.Edittext.BlackText"
+                            app:fontPath="fonts/helveticaneuecyr_roman.ttf"/>
+
+                        <RadioButton
+                            android:id="@+id/fragment_signup_female_radio_button"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bg_segment_right_control_selector"
+                            android:button="@null"
+                            android:paddingBottom="@dimen/indent_small"
+                            android:paddingLeft="@dimen/indent_large"
+                            android:paddingRight="@dimen/indent_large"
+                            android:paddingTop="@dimen/indent_small"
+                            android:text="@string/female"
+                            android:textColor="@drawable/tc_segment_control_selector"
+                            android:textSize="15sp"
+                            app:fontPath="fonts/helveticaneuecyr_roman.ttf"/>
+                    </RadioGroup>
+
+                    <com.wezom.ulcv2.ui.view.EditTextView
+                        android:id="@+id/fragment_signup_birthday_edit_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="date"
+                        android:paddingRight="@dimen/fragment_register_form_padding"
+                        app:errorImage="true"
+                        app:hasClear="false"
+                        app:hintText="@string/date_of_birth"
+                        app:inputId="@+id/fragment_signup_birthday_edit"
+                        app:singleLine="true"/>
+
+                    <com.wezom.ulcv2.ui.view.EditTextView
+                        android:id="@+id/fragment_signup_language_edit_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="@dimen/fragment_register_form_padding"
+                        app:errorImage="true"
+                        app:hasClear="false"
+                        app:hintText="@string/language"
+                        app:inputId="@+id/fragment_signup_language_edit"
+                        app:singleLine="true"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:orientation="horizontal"
+                        android:paddingLeft="40dp"
+                        android:paddingRight="@dimen/fragment_register_form_padding">
+
+                        <CheckBox
+                            android:id="@+id/fragment_sign_up_terms_check_box"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingRight="@dimen/fragment_register_form_padding"/>
+
+                        <TextView
+                            android:id="@+id/fragment_sign_up_terms_text"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center_vertical"
+                            android:textSize="13sp"
+                            android:text="@string/fragment_sign_up_i_agree_to"
+                            android:textColor="@color/color_black" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/fragment_register_confirm_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/fragment_register_form_layout"
+                    android:layout_alignTop="@+id/fragment_register_form_layout"
+                    android:layout_alignWithParentIfMissing="false"
+                    android:layout_centerVertical="true"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:src="@drawable/ic_confirm_your_email"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="@dimen/indent_medium"
+                        android:gravity="center_horizontal"
+                        android:text="@string/confirm_you_email"
+                        android:textColor="@color/color_black"
+                        android:theme="@style/Signup.Edittext.BlackText"/>
+
+                    <RelativeLayout
+                        android:id="@+id/fragment_signup_confirm_button"
+                        style="@style/OrangeButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/fragment_login_edit_text_margin_left_right"
+                        android:layout_marginRight="@dimen/fragment_login_edit_text_margin_left_right"
+                        android:layout_marginTop="@dimen/indent_medium">
+
+                        <TextView
+                            android:id="@+id/fragment_login_login_text"
+                            style="@style/OrangeButton.TextAppearance"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:text="@string/ok"/>
+
+                        <ProgressBar
+                            android:id="@+id/fragment_login_button_progressbar"
+                            android:layout_width="@dimen/fragment_login_progressbar_width"
+                            android:layout_height="@dimen/fragment_login_progressbar_height"
+                            android:layout_centerVertical="true"
+                            android:layout_toRightOf="@id/fragment_login_login_text"
+                            android:indeterminateTint="@color/color_black"
+                            android:visibility="invisible"/>
+
+                    </RelativeLayout>
+                </LinearLayout>
+            </RelativeLayout>
+
+        </RelativeLayout>
+    </ScrollView>
+
+    <ImageView
+        android:id="@+id/fragment_signup_bottom_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scaleType="fitXY"
+        android:src="@drawable/bg_cropped_circle"
+        android:layout_above="@+id/fragment_signup_button_layer"
+        android:layout_alignParentStart="true" />
+
+    <FrameLayout
+        android:id="@+id/fragment_signup_button_layer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:background="@color/color_white"
+        android:paddingBottom="@dimen/indent_large"
+        android:paddingTop="@dimen/circle_image_padding_top">
+
+        <RelativeLayout
+            android:id="@+id/fragment_signup_signup_button"
+            style="@style/OrangeButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/fragment_login_edit_text_margin_left_right"
+            android:layout_marginRight="@dimen/fragment_login_edit_text_margin_left_right">
+
+            <TextView
+                android:id="@+id/fragment_signup_signup_text"
+                style="@style/OrangeButton.Text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="@string/sign_up"
+                app:fontPath="fonts/helveticaneuecyr_roman.ttf"/>
+
+            <ProgressBar
+                android:id="@+id/fragment_signup_signup_button_progressbar"
+                android:layout_width="@dimen/fragment_login_progressbar_width"
+                android:layout_height="@dimen/fragment_login_progressbar_height"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@id/fragment_signup_signup_text"
+                android:indeterminateTint="@color/color_white"
+                android:indeterminateTintMode="src_atop"
+                android:visibility="invisible"/>
+        </RelativeLayout>
+    </FrameLayout>
+</RelativeLayout>

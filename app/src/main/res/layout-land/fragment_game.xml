@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_game_coordinator_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:keepScreenOn="true">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.wezom.ulcv2.ui.view.NoTouchableSlidingPaneLayout
+            android:id="@+id/talk_activity_sliding_pane_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <android.support.percent.PercentRelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="start">
+
+                <android.support.percent.PercentRelativeLayout
+                    android:id="@+id/fragment_session_webcams_layout"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_widthPercent="85%">
+
+                    <com.wezom.ulcv2.ui.view.PlayWebCamView
+                        android:id="@+id/fragment_session_left_webcam_layout"
+                        android:layout_height="0dp"
+                        app:layout_aspectRatio="133.33%"
+                        app:layout_widthPercent="49.85%"
+                        app:webCamMode="game"
+                        app:webCamAlign="left" />
+
+                    <View
+                        android:id="@+id/fragment_session_webcam_separator_view"
+                        android:layout_width="0dp"
+                        android:layout_alignBottom="@id/activity_game_left_webcam_layout"
+                        android:layout_alignTop="@id/activity_game_left_webcam_layout"
+                        android:layout_toEndOf="@id/activity_game_left_webcam_layout"
+                        android:background="@color/color_white"
+                        app:layout_widthPercent="0.5%" />
+
+                    <com.wezom.ulcv2.ui.view.PlayWebCamView
+                        android:id="@+id/fragment_session_right_webcam_layout"
+                        android:layout_height="0dp"
+                        android:layout_toEndOf="@id/fragment_session_webcam_separator_view"
+                        app:layout_aspectRatio="133.33%"
+                        app:layout_widthPercent="49.85%"
+                        app:webCamMode="game"
+                        app:webCamAlign="right" />
+
+                </android.support.percent.PercentRelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/activity_game_game_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_alignEnd="@id/fragment_session_webcams_layout"
+                    android:layout_below="@id/fragment_session_webcams_layout"
+                    android:background="@color/color_white">
+
+                    <TextView
+                        android:id="@+id/fragment_game_session_state_text_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:textColor="@color/color_black"
+                        android:textSize="@dimen/activity_game_state_text_view_text_size"
+                        tools:text="You may leave now" />
+
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="@dimen/activity_game_chat_gradient_width"
+                    android:layout_height="match_parent"
+                    android:layout_alignEnd="@id/fragment_session_webcams_layout"
+                    android:background="@drawable/bg_vertical_gradient" />
+
+            </android.support.percent.PercentRelativeLayout>
+
+            <com.wezom.ulcv2.ui.view.ChatView
+                android:id="@+id/talk_activity_chat_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="end"
+                android:layout_marginStart="@dimen/fragment_session_chat_view_margin_start" />
+
+        </com.wezom.ulcv2.ui.view.NoTouchableSlidingPaneLayout>
+
+        <include
+            layout="@layout/view_session_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true" />
+
+        <include layout="@layout/view_error"/>
+
+        <include layout="@layout/view_loading"/>
+
+        <include layout="@layout/view_empty"/>
+
+    </RelativeLayout>
+
+</android.support.design.widget.CoordinatorLayout>

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/list_background_color">
+
+    <include
+        android:id="@+id/fragment_blacklist_toolbar"
+        layout="@layout/toolbar"/>
+
+    <LinearLayout
+        android:id="@+id/fragment_blacklist_search_layout"
+        android:layout_width="match_parent"
+        android:layout_below="@+id/fragment_blacklist_toolbar"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+      <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/fragment_blacklist_search_text_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/indent_small"
+                android:background="@drawable/bg_search_edit_text"
+                android:hint="@string/search"
+                android:paddingBottom="@dimen/indent_small"
+                android:paddingLeft="@dimen/indent_small"
+                android:paddingRight="@dimen/indent_small"
+                android:paddingTop="@dimen/indent_small"
+                android:singleLine="true"
+                android:theme="@style/List.Header.Text"
+                app:fontPath="fonts/helveticaneuecyr_roman.ttf"/>
+
+            <ImageView
+                android:id="@+id/fragment_blacklist_clear_search_edit_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignRight="@+id/fragment_blacklist_search_text_view"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/indent_small"
+                android:src="@drawable/ic_remove"/>
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/fragment_blacklist_users_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="@dimen/indent_small"
+            android:paddingLeft="@dimen/indent_small"
+            android:paddingRight="@dimen/indent_small"
+            android:paddingTop="@dimen/indent_small"
+            android:theme="@style/List.Header.Text"
+            app:fontPath="fonts/helveticaneuecyr_roman.ttf"
+            tools:text="456 users"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/nav_divider_size"
+            android:layout_alignParentTop="true"
+            android:background="@color/list_divider_color"/>
+    </LinearLayout>
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/contentView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/fragment_blacklist_search_layout">
+
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/fragment_blacklist_recycler"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/color_white"/>
+
+
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+    <include
+        layout="@layout/view_error"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center"/>
+
+    <include
+        layout="@layout/layout_loading_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center"/>
+
+    <include
+        layout="@layout/layout_empty_list"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"/>
+
+
+</RelativeLayout>

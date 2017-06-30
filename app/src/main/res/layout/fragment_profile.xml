@@ -1,0 +1,439 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/color_white">
+
+    <include
+        android:id="@+id/fragment_profile_toolbar"
+        layout="@layout/toolbar"/>
+
+    <android.support.design.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/fragment_profile_toolbar">
+
+        <android.support.design.widget.AppBarLayout
+            android:id="@+id/fragment_profile_appbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:elevation="0dp">
+
+            <android.support.design.widget.CollapsingToolbarLayout
+                android:id="@+id/fragment_profile_collapsing_toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:theme="@style/ThemeOverlay.AppCompat.Dark"
+                app:contentScrim="@color/color_white"
+                app:layout_scrollFlags="scroll">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/user_profile_background_image_height"
+                    app:layout_collapseMode="parallax">
+
+                    <TextView
+                        android:id="@+id/fragment_profile_warning_text1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:background="@color/color_black"
+                        android:gravity="center"
+                        android:paddingBottom="@dimen/warning_text_padding_top_bottom"
+                        android:paddingTop="@dimen/warning_text_padding_top_bottom"
+                        android:textColor="@color/color_white"
+                        android:visibility="visible"
+                        app:layout_scrollFlags="scroll"
+                        tools:text="@string/first_warning"/>
+
+                    <ImageView
+                        android:id="@+id/fragment_profile_user_background"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@color/colorPrimary"/>
+
+                    <ImageView
+                        android:id="@+id/fragment_profile_background_image"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop"/>
+
+                    <RelativeLayout
+                        android:id="@+id/fragment_profile_user_up_bar"
+                        android:layout_width="match_parent"
+                        android:layout_height="?actionBarSize"
+                        android:background="@drawable/shape_tint_vertical_gradient">
+
+                        <ImageView
+                            android:id="@+id/fragment_profile_background_change_button"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginEnd="@dimen/content_margin"
+                            android:src="@drawable/ic_camera"/>
+                    </RelativeLayout>
+
+                    <com.wezom.ulcv2.ui.view.StatusView
+                        android:id="@+id/fragment_profile_status_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/content_margin"
+                        android:background="@drawable/selector_bg_user_profile_action_button"
+                        android:visibility="gone"
+                        tools:visibility="visible"/>
+
+                    <LinearLayout
+                        android:id="@+id/fragment_profile_actions_panel"
+                        android:layout_width="@dimen/fragment_profile_user_panel_width"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentEnd="true"
+                        android:background="@drawable/shape_tint_horizontal_gradient"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical"
+                        android:padding="@dimen/indent_small"
+                        android:visibility="gone"
+                        tools:visibility="visible">
+
+                        <com.wezom.ulcv2.ui.view.ProfileToggleButtonView
+                            android:id="@+id/fragment_profile_follow_user"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"/>
+
+                        <RelativeLayout
+                            android:id="@+id/fragment_profile_chat"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:background="@drawable/selector_bg_user_profile_action_button">
+
+                            <TextView
+                                style="@style/ProfileActionsText"
+                                android:layout_centerVertical="true"
+                                android:layout_toStartOf="@+id/icon_chat"
+                                android:ellipsize="end"
+                                android:maxLines="1"
+                                android:text="@string/profile_chat"/>
+
+                            <ImageView
+                                android:id="@+id/icon_chat"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentEnd="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginStart="@dimen/indent_small"
+                                android:src="@drawable/ic_profile_chat"/>
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:id="@+id/fragment_profile_invite"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:background="@drawable/selector_bg_user_profile_action_button">
+
+                            <TextView
+                                style="@style/ProfileActionsText"
+                                android:layout_centerVertical="true"
+                                android:layout_toStartOf="@+id/icon_invite"
+                                android:ellipsize="end"
+                                android:maxLines="1"
+                                android:text="@string/invite"/>
+
+                            <ImageView
+                                android:id="@+id/icon_invite"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentEnd="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginStart="@dimen/indent_small"
+                                android:src="@drawable/ic_profile_invite"/>
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:id="@+id/fragment_profile_report"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:background="@drawable/selector_bg_user_profile_action_button">
+
+                            <TextView
+                                style="@style/ProfileActionsText"
+                                android:layout_centerVertical="true"
+                                android:layout_toStartOf="@+id/icon_report"
+                                android:ellipsize="end"
+                                android:maxLines="1"
+                                android:text="@string/report"/>
+
+                            <ImageView
+                                android:id="@+id/icon_report"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentEnd="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginStart="@dimen/indent_small"
+                                android:src="@drawable/ic_profile_report"/>
+                        </RelativeLayout>
+
+                        <com.wezom.ulcv2.ui.view.ProfileToggleButtonView
+                            android:id="@+id/fragment_profile_block_user"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"/>
+
+                    </LinearLayout>
+
+                </RelativeLayout>
+            </android.support.design.widget.CollapsingToolbarLayout>
+
+            <LinearLayout
+                android:id="@+id/fragment_profile_info_block"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/color_white"
+                android:orientation="vertical"
+                android:paddingBottom="@dimen/content_margin"
+                android:paddingLeft="@dimen/content_margin"
+                android:paddingRight="@dimen/content_margin"
+                android:paddingTop="@dimen/fragment_profile_info_block_padding_top">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:id="@+id/fragment_profile_followers_button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
+                        android:background="@drawable/selector_bg_click_tint"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/fragment_profile_followers_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="0"
+                            android:textAppearance="@style/ProfileCounterValueText"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="@string/followers"/>
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="0.5dp"
+                        android:layout_height="match_parent"
+                        android:background="@color/color_black"/>
+
+                    <LinearLayout
+                        android:id="@+id/fragment_profile_followings_button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
+                        android:background="@drawable/selector_bg_click_tint"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/fragment_profile_following_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="0"
+                            android:textAppearance="@style/ProfileCounterValueText"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="@string/following"/>
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="0.5dp"
+                        android:layout_height="match_parent"
+                        android:background="@color/color_black"/>
+
+                    <LinearLayout
+                        android:id="@+id/fragment_profile_games_button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
+                        android:background="@drawable/selector_bg_click_tint"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/fragment_profile_games_played_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="0"
+                            android:textAppearance="@style/ProfileCounterValueText"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="@string/fragment_profile_games_played"/>
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="0.5dp"
+                        android:layout_height="match_parent"
+                        android:background="@color/color_black"/>
+
+                    <LinearLayout
+                        android:id="@+id/fragment_profile_streams_button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
+                        android:background="@drawable/selector_bg_click_tint"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/fragment_profile_streams_played_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="0"
+                            android:textAppearance="@style/ProfileCounterValueText"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="@string/fragment_profile_streams_played"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/color_white"
+                android:paddingLeft="@dimen/content_margin"
+                android:paddingRight="@dimen/content_margin">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/about"
+                    android:textColor="@color/color_black"/>
+
+                <TextView
+                    android:id="@+id/fragment_profile_about_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/content_margin"
+                    tools:text="Test something text blah blah blah!!!"/>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/list_divider_height"
+                android:background="@drawable/bg_line_divider"/>
+
+        </android.support.design.widget.AppBarLayout>
+
+        <FrameLayout
+            android:id="@+id/fragment_profile_feed_placeholder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="@dimen/fragment_profile_user_info_block_bottom_padding"
+            app:layout_anchorGravity="left|top"
+            app:layout_behavior="com.wezom.ulcv2.ui.behaviours.AvatarBehavior">
+
+            <RelativeLayout
+                android:id="@+id/fragment_profile_user_panel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <com.wezom.ulcv2.ui.views.AvatarView
+                    android:id="@+id/fragment_profile_avatar_view"
+                    android:layout_width="160dp"
+                    android:layout_height="160dp"
+                    android:layout_marginLeft="@dimen/fragment_profile_avatar_margin_left"
+                    android:layout_marginTop="@dimen/fragment_profile_avatar_margin_top"/>
+            </RelativeLayout>
+
+            <FrameLayout
+                android:id="@+id/fragment_profile_warning_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/loading_background_color"
+                android:padding="@dimen/indent_mini"
+                android:visibility="gone"
+                tools:visibility="gone">
+
+                <TextView
+                    android:id="@+id/fragment_profile_warning_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:textAppearance="@android:style/TextAppearance.DeviceDefault.Small"
+                    android:textColor="@color/color_white"
+                    tools:text="@string/first_warning"/>
+            </FrameLayout>
+
+        </FrameLayout>
+    </android.support.design.widget.CoordinatorLayout>
+
+    <FrameLayout
+        android:id="@+id/fragment_profile_loading_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/loading_background_color"
+        android:clickable="true"
+        android:visibility="gone">
+
+        <me.zhanghai.android.materialprogressbar.MaterialProgressBar
+            style="@style/Widget.MaterialProgressBar.ProgressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"/>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/fragment_profile_error_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/color_black"
+        android:clickable="true"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/fragment_profile_error_text"
+            style="@style/Base.TextAppearance.AppCompat.Title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:textColor="@color/color_white"/>
+    </FrameLayout>
+
+    <com.wezom.ulcv2.ui.view.UlcActionButtonView
+        android:id="@+id/fragment_profile_action_button"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:visibility="gone"/>
+</RelativeLayout>

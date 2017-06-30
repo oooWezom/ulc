@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/menu_session_leave_item"
+        android:title="@string/leave"
+        android:icon="@drawable/ic_action_leave"
+        app:showAsAction="always"/>
+
+    <item
+        android:id="@+id/menu_session_next_item"
+        android:title="@string/next"
+        android:icon="@drawable/ic_action_next"
+        app:showAsAction="always"/>
+</menu>

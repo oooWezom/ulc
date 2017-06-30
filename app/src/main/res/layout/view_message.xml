@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:id="@+id/view_message_left_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:visibility="gone"
+        tools:visibility="visible">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/view_message_left_message_text"
+                fontPath="fonts/helveticaneuecyr_roman.ttf"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_chat_cloud"
+                android:gravity="left|center_vertical"
+                android:paddingBottom="@dimen/content_margin"
+                android:paddingLeft="@dimen/indent_medium"
+                android:paddingRight="@dimen/content_margin"
+                android:paddingTop="@dimen/content_margin"
+                android:theme="@style/OpponentMessageTheme"
+                tools:text="fsaff"/>
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/view_message_right_time"
+            fontPath="fonts/helveticaneuecyr_roman.ttf"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:padding="@dimen/content_margin"
+            android:paddingBottom="@dimen/indent_mini"
+            android:textColor="@color/system_message_text_color"
+            android:textSize="10sp"
+            tools:text="14:33"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/view_message_right_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:orientation="horizontal"
+        android:visibility="visible">
+
+        <me.zhanghai.android.materialprogressbar.MaterialProgressBar
+            android:id="@+id/view_message_send_progress"
+            style="@style/Widget.MaterialProgressBar.ProgressBar.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:paddingBottom="@dimen/content_margin"/>
+
+        <TextView
+            android:id="@+id/view_message_left_time"
+            fontPath="fonts/helveticaneuecyr_roman.ttf"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:paddingBottom="@dimen/indent_mini"
+            android:paddingLeft="@dimen/content_margin"
+            android:paddingRight="@dimen/content_margin"
+            android:paddingTop="@dimen/content_margin"
+            android:theme="@style/SystemMessageTheme"
+            tools:text="14:33"/>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/view_message_right_message_text"
+                fontPath="fonts/helveticaneuecyr_roman.ttf"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/bg_chat_cloud_my"
+                android:gravity="left|center_vertical"
+                android:paddingLeft="@dimen/indent_small"
+                android:paddingRight="@dimen/indent_medium"
+                android:theme="@style/MyMessageTheme"
+                tools:text="fsafsadfffffffftyutyf"/>
+
+            <ImageView
+                android:id="@+id/view_message_my_status_image_view"
+                fontPath="fonts/helveticaneuecyr_roman.ttf"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/view_message_right_message_text"
+                android:layout_alignParentBottom="false"
+                android:layout_alignRight="@+id/view_message_right_message_text"
+                android:layout_gravity="bottom"
+                android:layout_marginTop="@dimen/indent_micro"
+                android:paddingBottom="@dimen/indent_mini"
+                android:paddingRight="@dimen/indent_medium"
+                android:src="@drawable/ic_readed"/>
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/view_message_middle_time"
+        fontPath="fonts/helveticaneuecyr_roman.ttf"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:padding="@dimen/content_margin"
+        android:textColor="@color/system_message_text_color"
+        android:textStyle="italic"
+        tools:text="14:33"
+        tools:visibility="gone"/>
+</RelativeLayout>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/fragment_video_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.wezom.ulcv2.common.FixedAspectRatioFrameLayout
+        android:id="@+id/fragment_video_holder"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        android:background="@color/color_black" />
+
+    <me.zhanghai.android.materialprogressbar.MaterialProgressBar
+        android:id="@+id/fragment_video_progress_bar"
+        style="@style/Widget.MaterialProgressBar.ProgressBar.NoPadding"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:indeterminate="true"
+        app:mpb_progressStyle="circular" />
+
+    <FrameLayout
+        android:id="@+id/fragment_video_ui_holder"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <FrameLayout
+        android:id="@+id/fragment_video_ui_holder_allways_visible"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</RelativeLayout>
+

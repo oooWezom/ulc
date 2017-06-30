@@ -1,0 +1,8 @@
+<resources>
+
+    <style name="Signup.Edittext.Text" parent="Edittext.BlackText">
+        <item name="android:singleLine">true</item>
+        <item name="android:textSize">13sp</item>
+    </style>
+
+</resources>

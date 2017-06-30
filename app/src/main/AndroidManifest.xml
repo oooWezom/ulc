@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="com.wezom.ulcv2">
+
+    <uses-feature android:name="android.hardware.camera"/>
+    <uses-feature android:name="android.hardware.camera.autofocus"/>
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+
+    <supports-gl-texture android:name="GL_OES_compressed_ETC1_RGB8_texture"/>
+
+    <uses-feature
+        android:name="android.hardware.touchscreen"
+        android:required="false"/>
+    <uses-feature
+        android:name="android.hardware.touchscreen.multitouch"
+        android:required="false"/>
+    <uses-feature
+        android:name="android.hardware.touchscreen.multitouch.distinct"
+        android:required="false"/>
+
+    <application
+        android:name=".ULCApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <activity
+            android:name=".ui.activity.HomeActivity"
+            android:launchMode="singleTask"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:windowSoftInputMode="adjustPan">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="http" />
+                <data android:scheme="https" />
+                <data android:host="dev.ulc.tv"/>
+                <data android:host="ulc.tv"/>
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".ui.activity.GameActivity"
+            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale"
+            android:label="@string/app_name"
+            android:theme="@style/PlayTheme"
+            android:windowSoftInputMode="adjustPan">
+            <meta-data
+                android:name="unityplayer.UnityActivity"
+                android:value="true"
+                android:windowSoftInputMode="adjustPan"/>
+            <!--<meta-data-->
+                <!--android:name="unityplayer.ForwardNativeEventsToDalvik"-->
+                <!--android:value="false"/>-->
+        </activity>
+
+        <activity
+            android:name=".ui.activity.TalkActivity"
+            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale"
+            android:label="@string/app_name"
+            android:theme="@style/TalkTheme"
+            android:windowSoftInputMode="adjustResize">
+
+        </activity>
+
+        <meta-data
+            android:name="AA_DB_NAME"
+            android:value="ulc.db"/>
+
+        <meta-data
+            android:name="AA_DB_VERSION"
+            android:value="1"/>
+
+        <meta-data
+            android:name="AA_MODELS"
+            android:value="com.wezom.ulcv2.mvp.model.Message,com.wezom.ulcv2.mvp.model.Dialog,com.wezom.ulcv2.mvp.model.Person,com.wezom.ulcv2.mvp.model.Language,com.wezom.ulcv2.mvp.model.Category"/>
+
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version"/>
+
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="6eddfee507118a93a974b45240a1f6d5ffe5fdb3" />
+
+        <receiver
+            android:name=".net.ConnectionListener"
+            android:label="ConnectionListener">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+        </receiver>
+
+    </application>
+
+</manifest>

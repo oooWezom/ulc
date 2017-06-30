@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+    <com.balysv.materialripple.MaterialRippleLayout
+        android:id="@+id/view_search_ripple_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:mrl_rippleColor="@color/colorTextInactive"
+        app:mrl_rippleDimension="@dimen/ripple_size"
+        app:mrl_rippleHover="true"
+        app:mrl_rippleOverlay="true">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/content_margin"
+            android:paddingRight="@dimen/content_margin"
+            android:paddingTop="@dimen/content_margin">
+
+            <com.github.siyamed.shapeimageview.CircularImageView
+                android:id="@+id/view_search_avatar_image"
+                android:layout_width="@dimen/nav_icon_photo_size"
+                android:layout_height="@dimen/nav_icon_photo_size"
+                android:layout_centerVertical="true"
+                android:layout_marginBottom="@dimen/content_margin"
+                android:layout_marginLeft="@dimen/indent_mini"
+                android:layout_marginRight="@dimen/indent_medium"
+                app:siBorderColor="@color/colorPrimary"
+                app:siBorderWidth="@dimen/nav_icon_photo_border_width"
+                tools:background="@color/colorAccent"/>
+
+            <LinearLayout
+                android:id="@+id/view_search_info_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/content_margin"
+                android:layout_marginRight="@dimen/content_margin"
+                android:layout_toLeftOf="@+id/view_search_status_image_view"
+                android:layout_toRightOf="@id/view_search_avatar_image"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/view_search_name_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:theme="@style/Follows.Header.Text"
+                    app:fontPath="fonts/helveticaneuecyr_roman.ttf"
+                    tools:text="Husky"/>
+
+                <TextView
+                    android:id="@+id/view_search_level"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:theme="@style/Follows.Info.Text"
+                    app:fontPath="fonts/helveticaneuecyr_roman.ttf"
+                    tools:text="10 lev"/>
+
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/view_search_status_image_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                tools:src="@drawable/ic_online"/>
+        </RelativeLayout>
+
+    </com.balysv.materialripple.MaterialRippleLayout>
+
+</RelativeLayout>

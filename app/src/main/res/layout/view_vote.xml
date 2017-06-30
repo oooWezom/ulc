@@ -1,0 +1,90 @@
+<RelativeLayout
+    android:id="@+id/activity_game_vote_view_layout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/indent_medium"
+    android:visibility="visible"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <com.wezom.ulcv2.ui.view.VoteView
+        android:id="@+id/activity_game_vote_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_margin="@dimen/indent_medium"
+        android:orientation="vertical"
+        android:padding="@dimen/indent_medium">
+
+        <com.github.siyamed.shapeimageview.CircularImageView
+            android:id="@+id/view_vote_rate_avatar"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_default_user_avatar"
+            app:siBorderColor="@color/colorPrimary"
+            app:siBorderWidth="@dimen/circular_border_padding"/>
+
+        <TextView
+            android:id="@+id/activity_game_vote_view_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/indent_medium"
+            android:gravity="center"
+            android:text="@string/rate_one_player"
+            android:textColor="@color/color_black"
+            android:textSize="16sp"/>
+
+        <TextView
+            android:id="@+id/view_vote_username_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            tools:text="@string/username"
+            android:textColor="@color/color_black"
+            android:textSize="16sp"/>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/indent_large"
+            android:layout_marginRight="@dimen/indent_large"
+            android:layout_marginTop="@dimen/indent_medium"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/view_vote_rate_dislike_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_gravity="left|center_vertical"
+                android:layout_marginLeft="@dimen/indent_large"
+                android:drawableTop="@drawable/ic_rate_dislike"
+                android:text="@string/dislike"
+                app:fontPath="fonts/helveticaneuecyr_roman.ttf"/>
+
+            <TextView
+                android:id="@+id/view_vote_rate_like_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/indent_large"
+                android:drawableTop="@drawable/ic_rate_like"
+                android:text="@string/like"
+                app:fontPath="fonts/helveticaneuecyr_roman.ttf"/>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

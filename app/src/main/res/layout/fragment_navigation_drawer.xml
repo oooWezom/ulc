@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@drawable/bg_nav_drawer"
+              android:orientation="vertical"
+              android:paddingBottom="@dimen/indent_small"
+              android:paddingTop="@dimen/indent_small">
+
+    <com.wezom.ulcv2.ui.view.SearchFollowersView
+        android:id="@+id/fragment_navigation_drawer_search_people_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:paddingBottom="@dimen/indent_mini"
+        android:paddingLeft="@dimen/indent_small"
+        android:paddingRight="@dimen/indent_small"
+        android:paddingTop="@dimen/indent_mini"/>
+
+    <com.balysv.materialripple.MaterialRippleLayout
+        android:id="@+id/fragment_navigation_drawer_user_ripple_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:mrl_rippleColor="@color/colorTextInactive"
+        app:mrl_rippleDimension="@dimen/ripple_size"
+        app:mrl_rippleHover="true"
+        app:mrl_rippleOverlay="true">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/indent_small">
+
+            <com.github.siyamed.shapeimageview.CircularImageView
+                android:id="@+id/fragment_navigation_drawer_user_image_view"
+                android:layout_width="@dimen/nav_icon_photo_size"
+                android:layout_height="@dimen/nav_icon_photo_size"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginBottom="@dimen/indent_mini"
+                android:layout_marginRight="@dimen/indent_small"
+                android:scaleType="centerCrop"
+                android:src="@drawable/com_facebook_profile_picture_blank_square"
+                app:siBorderColor="@color/color_white"
+                app:siBorderWidth="@dimen/circular_border_padding"/>
+
+            <ImageView
+                android:id="@+id/fragment_navigation_drawer_create_photo_image_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:paddingRight="@dimen/indent_small"
+                android:src="@drawable/ic_camera"/>
+
+            <TextView
+                android:id="@+id/fragment_navigation_drawer_username_text_view"
+                fontPath="fonts/myriadpro_regular.otf"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@+id/fragment_navigation_drawer_create_photo_image_view"
+                android:layout_toRightOf="@+id/fragment_navigation_drawer_user_image_view"
+                android:ellipsize="end"
+                android:paddingLeft="@dimen/indent_small"
+                android:paddingRight="@dimen/indent_small"
+                android:singleLine="true"
+                android:textColor="@color/color_white"
+                tools:text="Black Overlord"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/nav_divider_size"
+                android:layout_alignLeft="@+id/fragment_navigation_drawer_username_text_view"
+                android:layout_below="@+id/fragment_navigation_drawer_user_image_view"
+                android:alpha="0.4"
+                android:background="@color/color_white"/>
+
+        </RelativeLayout>
+    </com.balysv.materialripple.MaterialRippleLayout>
+
+    <com.balysv.materialripple.MaterialRippleLayout
+        android:id="@+id/fragment_navigation_drawer_follows_ripple_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:mrl_rippleColor="@color/colorTextInactive"
+        app:mrl_rippleDimension="@dimen/ripple_size"
+        app:mrl_rippleHover="true"
+        app:mrl_rippleOverlay="true">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/content_margin">
+
+            <ImageView
+                android:id="@+id/fragment_navigation_drawer_follows_image_view"
+                android:layout_width="@dimen/nav_icon_photo_size"
+                android:layout_height="@dimen/nav_icon_photo_size"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginBottom="@dimen/indent_mini"
+                android:layout_marginRight="@dimen/indent_small"
+                android:padding="@dimen/indent_mini"
+                android:src="@drawable/ic_nav_follows"/>
+
+            <TextView
+                android:id="@+id/fragment_navigation_drawer_follows_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/fragment_navigation_drawer_follows_image_view"
+                android:ellipsize="end"
+                android:paddingLeft="@dimen/indent_small"
+                android:paddingRight="@dimen/indent_small"
+                android:singleLine="true"
+                android:text="@string/follows"
+                android:textColor="@color/color_white"/>
+
+            <TextView
+                android:id="@+id/fragment_navigation_drawer_follows_count_text_view"
+                fontPath="fonts/myriadpro_regular.otf"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/fragment_navigation_drawer_follows_text_view"
+                android:background="@drawable/bg_active_popup"
+                android:gravity="center_vertical|center_horizontal"
+                android:padding="@dimen/indent_micro"
+                android:textColor="@color/color_white"
+                android:visibility="gone"
+                tools:text="15"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/nav_divider_size"
+                android:layout_alignLeft="@+id/fragment_navigation_drawer_follows_text_view"
+                android:layout_below="@+id/fragment_navigation_drawer_follows_image_view"
+                android:alpha="0.4"
+                android:background="@color/color_white"/>
+
+        </RelativeLayout>
+    </com.balysv.materialripple.MaterialRippleLayout>
+
+    <com.balysv.materialripple.MaterialRippleLayout
+        android:id="@+id/fragment_navigation_drawer_messages_ripple_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:mrl_rippleColor="@color/colorTextInactive"
+        app:mrl_rippleDimension="@dimen/ripple_size"
+        app:mrl_rippleHover="true"
+        app:mrl_rippleOverlay="true">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/content_margin">
+
+            <ImageView
+                android:id="@+id/fragment_navigation_drawer_messages_image_view"
+                android:layout_width="@dimen/nav_icon_photo_size"
+                android:layout_height="@dimen/nav_icon_photo_size"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginBottom="@dimen/indent_mini"
+                android:layout_marginRight="@dimen/indent_small"
+                android:padding="@dimen/indent_mini"
+                android:src="@drawable/ic_nav_messages"/>
+
+            <TextView
+                android:id="@+id/fragment_navigation_drawer_messages_text_view"
+                fontPath="fonts/myriadpro_regular.otf"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/fragment_navigation_drawer_messages_image_view"
+                android:ellipsize="end"
+                android:paddingLeft="@dimen/indent_small"
+                android:paddingRight="@dimen/indent_small"
+                android:singleLine="true"
+                android:text="@string/messages"
+                android:textColor="@color/color_white"/>
+
+            <TextView
+                android:id="@+id/fragment_navigation_drawer_messages_count_text_view"
+                fontPath="fonts/myriadpro_regular.otf"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/fragment_navigation_drawer_messages_text_view"
+                android:background="@drawable/bg_active_popup"
+                android:gravity="center_vertical|center_horizontal"
+                android:padding="@dimen/indent_micro"
+                android:textColor="@color/color_white"
+                android:visibility="gone"
+                tools:text="15"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/nav_divider_size"
+                android:layout_alignLeft="@+id/fragment_navigation_drawer_messages_text_view"
+                android:layout_below="@+id/fragment_navigation_drawer_messages_image_view"
+                android:alpha="0.4"
+                android:background="@color/color_white"/>
+
+        </RelativeLayout>
+    </com.balysv.materialripple.MaterialRippleLayout>
+
+    <com.balysv.materialripple.MaterialRippleLayout
+        android:id="@+id/fragment_navigation_drawer_newsfeed_ripple_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:mrl_rippleColor="@color/colorTextInactive"
+        app:mrl_rippleDimension="@dimen/ripple_size"
+        app:mrl_rippleHover="true"
+        app:mrl_rippleOverlay="true">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/indent_small">
+
+            <ImageView
+                android:id="@+id/fragment_navigation_drawer_newsfeed_image_view"
+                android:layout_width="@dimen/nav_icon_photo_size"
+                android:layout_height="@dimen/nav_icon_photo_size"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginBottom="@dimen/indent_mini"
+                android:layout_marginRight="@dimen/indent_small"
+                android:padding="@dimen/indent_mini"
+                android:src="@drawable/ic_nav_newsfeed"/>
+
+            <TextView
+                android:id="@+id/fragment_navigation_drawer_newsfeed_text_view"
+                fontPath="fonts/myriadpro_regular.otf"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/fragment_navigation_drawer_newsfeed_image_view"
+                android:ellipsize="end"
+                android:paddingLeft="@dimen/indent_small"
+                android:paddingRight="@dimen/indent_small"
+                android:singleLine="true"
+                android:text="@string/newsfeed"
+                android:textColor="@color/color_white"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/nav_divider_size"
+                android:layout_alignLeft="@+id/fragment_navigation_drawer_newsfeed_text_view"
+                android:layout_below="@+id/fragment_navigation_drawer_newsfeed_image_view"
+                android:alpha="0.4"
+                android:background="@color/color_white"/>
+
+        </RelativeLayout>
+    </com.balysv.materialripple.MaterialRippleLayout>
+
+    <com.balysv.materialripple.MaterialRippleLayout
+        android:id="@+id/fragment_navigation_drawer_setting_ripple_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:mrl_rippleColor="@color/colorTextInactive"
+        app:mrl_rippleDimension="@dimen/ripple_size"
+        app:mrl_rippleHover="true"
+        app:mrl_rippleOverlay="true">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/content_margin">
+
+            <ImageView
+                android:id="@+id/fragment_navigation_drawer_setting_image_view"
+                android:layout_width="@dimen/nav_icon_photo_size"
+                android:layout_height="@dimen/nav_icon_photo_size"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginBottom="@dimen/indent_mini"
+                android:layout_marginRight="@dimen/indent_small"
+                android:padding="@dimen/indent_mini"
+                android:src="@drawable/ic_nav_settings"/>
+
+            <TextView
+                android:id="@+id/fragment_navigation_drawer_setting_text_view"
+                fontPath="fonts/myriadpro_regular.otf"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/fragment_navigation_drawer_setting_image_view"
+                android:ellipsize="end"
+                android:paddingLeft="@dimen/indent_small"
+                android:paddingRight="@dimen/indent_small"
+                android:singleLine="true"
+                android:text="@string/setting"
+                android:textColor="@color/color_white"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/nav_divider_size"
+                android:layout_alignLeft="@+id/fragment_navigation_drawer_setting_text_view"
+                android:layout_below="@+id/fragment_navigation_drawer_setting_image_view"
+                android:alpha="0.4"
+                android:background="@color/color_white"/>
+
+        </RelativeLayout>
+    </com.balysv.materialripple.MaterialRippleLayout>
+
+</LinearLayout>

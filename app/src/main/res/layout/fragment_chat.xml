@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:id="@+id/fragment_chat_root"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+    <com.wezom.ulcv2.common.FixedAspectRatioFrameLayout
+        android:id="@+id/chat_fragment_fake_video_frame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerHorizontal="true"/>
+
+    <RelativeLayout
+        android:id="@+id/chat_fragment_chat_frame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clickable="true"
+        android:layout_below="@+id/chat_fragment_fake_video_frame"
+        android:background="@color/color_white">
+
+        <RelativeLayout
+            android:id="@+id/talk_activity_chat_header"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/fragment_chat_header_height"
+            android:layout_gravity="bottom"
+            android:background="@color/color_white_panel">
+
+            <TextView
+                style="@style/AskedQuestionTextStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/indent_medium"
+                android:text="@string/chat"/>
+
+            <TextView
+                android:id="@+id/fragment_chat_spectators_count_label"
+                style="@style/AskedQuestionTextStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="@dimen/indent_mini"
+                android:layout_toStartOf="@+id/talk_activity_user_icon"
+                tools:text="501"/>
+
+            <ImageView
+                android:id="@+id/talk_activity_user_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="@dimen/indent_medium"
+                android:src="@drawable/ic_user"/>
+        </RelativeLayout>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/fragment_chat_recycler"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/fragment_chat_message_message_layout"
+            android:layout_below="@+id/talk_activity_chat_header"
+            tools:listitem="@layout/view_chat_message"/>
+
+        <RelativeLayout
+            android:id="@+id/fragment_chat_message_message_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignStart="@id/contentView"
+            android:layout_marginBottom="@dimen/indent_medium"
+            android:layout_marginEnd="@dimen/indent_medium"
+            android:layout_marginStart="@dimen/indent_medium"
+            android:background="@color/chat_input_color">
+
+            <EditText
+                android:id="@+id/fragment_chat_message_edit_text"
+                style="@style/ChatEditTextStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toStartOf="@+id/fragment_chat_send_text_view"
+                android:imeOptions="flagNoExtractUi"
+                android:padding="@dimen/view_chat_message_edit_text_padding"
+                android:theme="@style/ChatEditTextTheme"/>
+
+            <TextView
+                android:id="@+id/fragment_chat_send_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/indent_small"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="@dimen/indent_medium"
+                android:background="@drawable/selector_bg_transparent"
+                android:text="@string/send"
+                android:textColor="@color/color_white"
+                android:textSize="@dimen/view_chat_send_text_view_text_size"/>
+
+        </RelativeLayout>
+    </RelativeLayout>
+</RelativeLayout>

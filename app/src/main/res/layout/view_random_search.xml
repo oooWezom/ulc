@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:background="@color/color_gray">
+
+    <TextView
+        android:id="@+id/fragment_talk_random_search_text_view"
+        style="@style/UserSearchTextViewStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/searching_for_companion"/>
+
+    <ImageView
+        android:id="@+id/fragment_talk_cancel_random_search_image_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/fragment_talk_cancel_random_search_image_view_margin"
+        android:layout_marginStart="@dimen/fragment_talk_cancel_random_search_image_view_margin"
+        android:layout_toEndOf="@id/fragment_talk_random_search_text_view"
+        android:src="@drawable/ic_talk_add"/>
+
+    <TextView
+        android:id="@+id/fragment_talk_cancel_random_search_button"
+        style="@style/UserSearchTextViewStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/fragment_talk_cancel_random_search_image_view"
+        android:layout_toEndOf="@id/fragment_talk_random_search_text_view"
+        android:drawableEnd="@drawable/ic_action_cancel_white"
+        android:drawablePadding="@dimen/fragment_talk_cancel_random_search_button_drawable_padding"
+        android:text="@string/cancel"/>
+
+</RelativeLayout>

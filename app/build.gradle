@@ -1,0 +1,225 @@
+apply plugin: 'com.android.application'
+apply plugin: 'io.fabric'
+//apply plugin: 'com.neenbedankt.android-apt'
+
+//retrolambda
+apply plugin: 'me.tatarka.retrolambda'
+
+//logger
+apply plugin: 'com.jakewharton.hugo'
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion '25.0.1'
+
+    defaultConfig {
+        applicationId "com.wezom.ulcv2"
+        minSdkVersion 19
+        targetSdkVersion 20
+        versionCode 7
+        versionName "1.0"
+        multiDexEnabled true
+    }
+
+    dexOptions {
+        preDexLibraries = false
+        javaMaxHeapSize "4g"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            lintOptions {
+                disable 'MissingTranslation'
+            }
+        }
+        debug {
+            signingConfig signingConfigs.debug
+        }
+    }
+
+    productFlavors {
+        production {
+            minSdkVersion 19
+            applicationId "com.wezom.ulcv2"
+        }
+
+        development {
+            minSdkVersion 19
+            applicationId "com.wezom.ulcv2_debug"
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    packagingOptions {
+        exclude 'META-INF/services/javax.annotation.processing.Processor'
+        exclude 'LICENSE.txt'
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/ASL2.0'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/notice.txt'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/LICENSE'
+    }
+}
+
+buildscript {
+    repositories {
+        maven { url 'https://maven.fabric.io/public' }
+    }
+
+    dependencies {
+        // These docs use an open ended version so that our plugin
+        // can be updated quickly in response to Android tooling updates
+
+        // We recommend changing it to the latest version from our changelog:
+        // https://docs.fabric.io/android/changelog.html#fabric-gradle-plugin
+        classpath 'io.fabric.tools:gradle:1.+'
+    }
+}
+
+repositories {
+    maven { url 'https://maven.fabric.io/public' }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    testCompile 'junit:junit:4.12'
+
+    //Android support libraries
+    def sdkVersion = '25.1.0'
+    compile 'com.android.support:appcompat-v7:' + sdkVersion
+    compile 'com.android.support:percent:' + sdkVersion
+    compile 'com.android.support:design:' + sdkVersion
+    compile 'com.android.support:recyclerview-v7:' + sdkVersion
+    compile 'com.android.support:palette-v7:' + sdkVersion
+
+    //Dagger2
+    compile 'com.google.dagger:dagger-compiler:2.0.1'
+    compile 'com.google.dagger:dagger:2.0.1'
+    compile 'org.glassfish:javax.annotation:10.0-b28'
+
+    //Moxy
+    compile 'com.arello-mobile:moxy:1.2.1'
+    compile 'com.arello-mobile:moxy-app-compat:1.2.1'
+    annotationProcessor 'com.arello-mobile:moxy-compiler:1.2.1'
+    //Cicerone
+    compile 'ru.terrakok.cicerone:cicerone:1.1'
+
+    //Lombok
+    compile 'org.projectlombok:lombok:1.16.10'
+
+    //Bus
+    compile 'org.greenrobot:eventbus:3.0.0'
+
+    //Retrofit
+    compile 'com.squareup.retrofit2:retrofit:2.0.2'
+    compile 'com.squareup.retrofit2:converter-gson:2.0.2'
+    compile 'com.squareup.retrofit2:adapter-rxjava:2.0.2'
+
+    //OkHTTP
+    compile 'com.squareup.okhttp3:okhttp:3.4.2'
+    compile 'com.squareup.okhttp3:okhttp-ws:3.4.2'
+    compile 'com.squareup.okhttp3:logging-interceptor:3.4.2'
+
+    //GSON
+    compile 'com.google.code.gson:gson:2.6.2'
+
+    //Picasso
+    compile 'com.squareup.picasso:picasso:2.5.2'
+
+    //Form validator
+    compile 'com.mobsandgeeks:android-saripaar:2.0.3'
+
+    //Date picker
+    compile 'com.wdullaer:materialdatetimepicker:2.3.0'
+
+    //RxJava
+    compile 'io.reactivex:rxjava:1.1.5'
+    compile 'io.reactivex:rxandroid:1.2.0'
+    compile 'com.jakewharton.rxbinding:rxbinding-appcompat-v7:0.4.0'
+    compile 'com.jakewharton.rxbinding:rxbinding-design:0.4.0'
+
+    //ButterKnife
+    compile 'com.jakewharton:butterknife:8.0.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.0.1'
+
+    //Calligraphy
+    compile 'uk.co.chrisjenx:calligraphy:2.1.0'
+
+    //ShapeImageView
+    compile 'com.github.siyamed:android-shape-imageview:0.9.3@aar'
+    compile 'com.pkmmte.view:circularimageview:1.1'
+
+    //Progressbar
+    compile 'me.zhanghai.android.materialprogressbar:library:1.1.6'
+
+    //VK SDK
+    compile 'com.vk:androidsdk:1.6.7'
+
+    //Facebook
+    compile 'com.facebook.android:facebook-android-sdk:4.12.0'
+
+    //Endless adapter
+    compile 'com.rockerhieu:rv-adapter-endless:1.1'
+
+    //JobQueue
+    compile 'com.birbit:android-priority-jobqueue:2.0.0-alpha2'
+
+    //Material Shadow 9-Patch
+    compile 'com.h6ah4i.android.materialshadowninepatch:materialshadowninepatch:0.6.5'
+
+    //Crop
+    compile 'com.isseiaoki:simplecropview:1.1.4'
+
+    //DB
+    compile 'com.michaelpardo:activeandroid:3.1.0-SNAPSHOT'
+
+    //Material ripple
+    compile 'com.balysv:material-ripple:1.0.2'
+
+    //Multidex
+    compile 'com.android.support:multidex:1.0.1'
+
+    //fragment with args
+    compile 'com.hannesdorfmann.fragmentargs:annotation:3.0.2'
+    annotationProcessor 'com.hannesdorfmann.fragmentargs:processor:3.0.2'
+    compile 'com.plattysoft.leonids:LeonidsLib:1.3.1'
+    compile 'com.google.android.gms:play-services-appindexing:8.1.0'
+
+    // Permission dispatcher
+    compile 'com.github.hotchemi:permissionsdispatcher:2.3.1'
+    annotationProcessor 'com.github.hotchemi:permissionsdispatcher-processor:2.3.1'
+
+    // Recycler animation
+    compile 'jp.wasabeef:recyclerview-animators:2.1.0'
+
+    //Sliding layer
+    compile 'com.wunderlist:sliding-layer:1.2.5'
+
+    //Player live streaming (fast)
+    compile project(':ijkplayer-java')
+
+    //Player for hls video
+    compile 'com.google.android.exoplayer:exoplayer:r1.5.6'
+
+    //Larix Streamer
+    repositories {
+        flatDir {
+            dirs 'libs'
+        }
+    }
+    compile(name: 'libstream-release', ext: 'aar')
+
+    compile('com.crashlytics.sdk.android:crashlytics:2.6.7@aar') {
+        transitive = true;
+    }
+
+
+}

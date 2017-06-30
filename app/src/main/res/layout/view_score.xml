@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <CheckBox
+        style="@style/ScoreEditTextStyle"
+        android:id="@+id/view_score_one_check_box"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/view_score_check_box_margin_end" />
+
+    <CheckBox
+        style="@style/ScoreEditTextStyle"
+        android:id="@+id/view_score_two_check_box"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/view_score_check_box_margin_end"/>
+
+    <CheckBox
+        style="@style/ScoreEditTextStyle"
+        android:id="@+id/view_score_three_check_box"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+</LinearLayout>

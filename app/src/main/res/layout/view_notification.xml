@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/activity_home_notification_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/indent_small"
+                android:background="@color/item_header_text_color">
+
+    <com.github.siyamed.shapeimageview.CircularImageView
+        android:id="@+id/view_notification_avatar_image_view"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_margin="@dimen/indent_small"
+        android:src="@drawable/ic_default_user_avatar"
+        app:siBorderColor="@color/colorPrimary"
+        app:siBorderWidth="@dimen/circular_border_padding"/>
+
+    <TextView
+        android:id="@+id/view_notification_title_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/indent_small"
+        android:layout_toLeftOf="@+id/view_notification_status_image_view"
+        android:layout_toRightOf="@+id/view_notification_avatar_image_view"
+        android:singleLine="true"
+        android:text="sdffafs"
+        android:textColor="@color/color_white"
+        android:textSize="18sp"/>
+
+    <TextView
+        android:id="@+id/activity_home_notification_context_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/view_notification_title_text_view"
+        android:layout_marginTop="@dimen/indent_small"
+        android:layout_toLeftOf="@+id/view_notification_status_image_view"
+        android:layout_toRightOf="@+id/view_notification_avatar_image_view"
+        android:text="sdffafs"
+        android:textColor="@color/color_white"
+        android:textSize="12sp"/>
+
+    <ImageView
+        android:id="@+id/view_notification_status_image_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@+id/view_notification_close_image_view"
+        android:src="@drawable/ic_2play_white"/>
+
+    <ImageView
+        android:id="@+id/view_notification_close_image_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:padding="@dimen/indent_small"
+        android:src="@drawable/ic_close_white"/>
+
+</RelativeLayout>

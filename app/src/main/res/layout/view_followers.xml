@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:orientation="horizontal">
+
+    <com.pkmmte.view.CircularImageView
+        android:id="@+id/view_followers_first_avatar"
+        android:layout_width="@dimen/view_followers_avatar_size"
+        android:layout_height="@dimen/view_followers_avatar_size"
+        app:border_color="@color/color_black"
+        app:border_width="1dp"
+        app:shadow="false"
+        app:border="true"
+        tools:src="@drawable/com_facebook_profile_picture_blank_portrait"/>
+
+    <com.pkmmte.view.CircularImageView
+        android:id="@+id/view_followers_second_avatar"
+        android:layout_width="@dimen/view_followers_avatar_size"
+        android:layout_height="@dimen/view_followers_avatar_size"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="-8dp"
+        app:border_color="@color/color_black"
+        app:border_width="1dp"
+        app:shadow="false"
+        app:border="true"
+        tools:src="@drawable/com_facebook_profile_picture_blank_portrait"/>
+
+    <com.pkmmte.view.CircularImageView
+        android:id="@+id/view_followers_third_avatar"
+        android:layout_width="@dimen/view_followers_avatar_size"
+        android:layout_height="@dimen/view_followers_avatar_size"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="-8dp"
+        app:border_color="@color/color_black"
+        app:border_width="1dp"
+        app:shadow="false"
+        app:border="true"
+        tools:src="@drawable/com_facebook_profile_picture_blank_portrait"/>
+</LinearLayout>

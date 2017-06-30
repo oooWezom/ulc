@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/active_talk_view_height"
+                android:background="@color/color_white"
+                tools:context="com.wezom.ulcv2.ui.view.ActiveTalkItemView">
+
+    <FrameLayout
+        android:id="@+id/view_active_talk_image_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true">
+
+        <LinearLayout
+            android:id="@+id/view_active_talk_multi_user_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:visibility="gone"
+            tools:visibility="visible">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:id="@+id/view_active_talk_first_webcam_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/view_active_game_webcam_image_height"
+                    android:layout_weight="1"
+                    android:scaleType="centerCrop"
+                    tools:background="@color/cardview_shadow_start_color"/>
+
+                <TextView
+                    android:id="@+id/view_active_talk_first_name_text"
+                    style="@style/Text.ActiveTalk.Label"
+                    android:layout_below="@+id/view_active_talk_first_webcam_image"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="@dimen/indent_small"
+                    android:textColor="@color/color_black"
+                    app:fontPath="fonts/helveticaneuecyr_thin.otf"
+                    tools:text="first name"/>
+
+                <com.github.siyamed.shapeimageview.CircularImageView
+                    android:id="@+id/view_active_talk_first_avatar_image"
+                    android:layout_width="@dimen/view_active_game_avatar_image_width_height"
+                    android:layout_height="@dimen/view_active_game_avatar_image_width_height"
+                    android:layout_above="@+id/view_active_talk_first_name_text"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="-8dp"
+                    app:siBorderColor="@color/color_white"
+                    app:siBorderWidth="2dp"
+                    tools:src="@drawable/ic_arrow"/>
+
+                <TextView
+                    android:id="@+id/view_active_talk_first_level_text"
+                    style="@style/Text.ActiveTalk.Label"
+                    android:layout_below="@id/view_active_talk_first_name_text"
+                    android:layout_centerHorizontal="true"
+                    android:textColor="@color/color_gray"
+                    tools:text="44 lvl"/>
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="4dp"
+                android:layout_height="match_parent"/>
+
+            <RelativeLayout
+                android:id="@+id/view_active_talk_right_layer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:id="@+id/view_active_talk_second_webcam_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/view_active_game_webcam_image_height"
+                    android:layout_weight="1"
+                    android:scaleType="centerCrop"
+                    tools:background="@color/avatar_progress_back"/>
+
+                <TextView
+                    android:id="@+id/view_active_talk_second_name_text"
+                    style="@style/Text.ActiveTalk.Label"
+                    android:layout_below="@+id/view_active_talk_second_webcam_image"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="@dimen/indent_small"
+                    android:textColor="@color/color_black"
+                    app:fontPath="fonts/helveticaneuecyr_thin.otf"
+                    tools:text="second name"/>
+
+                <com.github.siyamed.shapeimageview.CircularImageView
+                    android:id="@+id/view_active_talk_second_avatar_image"
+                    android:layout_width="@dimen/view_active_game_avatar_image_width_height"
+                    android:layout_height="@dimen/view_active_game_avatar_image_width_height"
+                    android:layout_above="@+id/view_active_talk_second_name_text"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="-8dp"
+                    app:siBorderColor="@color/color_white"
+                    app:siBorderWidth="2dp"
+                    tools:src="@drawable/ic_arrow"/>
+
+                <TextView
+                    android:id="@+id/view_active_talk_second_level_text"
+                    style="@style/Text.ActiveTalk.Label"
+                    android:layout_below="@id/view_active_talk_second_name_text"
+                    android:layout_centerHorizontal="true"
+                    android:textColor="@color/color_gray"
+                    tools:text="55 lvl"/>
+
+            </RelativeLayout>
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/view_active_talk_single_user_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:visibility="gone"
+            tools:visibility="visible">
+
+            <ImageView
+                android:id="@+id/view_active_talk_single_webcam_image"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/view_active_game_webcam_image_height"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_weight="1"
+                android:scaleType="centerCrop"
+                tools:background="@color/avatar_progress_back" />
+
+            <TextView
+                android:id="@+id/view_active_talk_single_name_text"
+                style="@style/Text.2Play.Label"
+                android:layout_below="@+id/view_active_talk_single_webcam_image"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/indent_small"
+                android:textColor="@color/color_black"
+                app:fontPath="fonts/helveticaneuecyr_thin.otf"
+                tools:text="Single name" />
+
+            <com.github.siyamed.shapeimageview.CircularImageView
+                android:id="@+id/view_active_talk_single_avatar_image"
+                android:layout_width="@dimen/view_active_game_avatar_image_width_height"
+                android:layout_height="@dimen/view_active_game_avatar_image_width_height"
+                android:layout_above="@+id/view_active_talk_single_name_text"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="-8dp"
+                app:siBorderColor="@color/color_white"
+                app:siBorderWidth="2dp"
+                tools:src="@drawable/ic_arrow" />
+
+            <TextView
+                android:id="@+id/view_active_talk_single_level_text"
+                style="@style/Text.2Play.Label"
+                android:layout_below="@id/view_active_talk_single_name_text"
+                android:layout_centerHorizontal="true"
+                android:textColor="@color/color_gray"
+                tools:text="55 lvl" />
+        </RelativeLayout>
+
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="@dimen/indent_small"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/view_active_talk_icon"
+            android:layout_width="@dimen/view_active_talk_icon_size"
+            android:layout_height="@dimen/view_active_talk_icon_size"
+            android:layout_marginStart="@dimen/indent_small"
+            android:src="@drawable/ic_choose_random"/>
+
+        <TextView
+            android:id="@+id/view_active_talk_talk_name_text"
+            style="@style/Text.ActiveTalk.Label"
+            android:layout_marginStart="@dimen/indent_mini"
+            android:textColor="@color/color_gray"
+            tools:text="Session name"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/view_active_talk_watchers_image_layout"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="@dimen/indent_small"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/view_active_talk_likes"
+            style="@style/Text.ActiveGame.Label"
+            android:layout_marginEnd="@dimen/indent_mini"
+            android:text="0"
+            android:textColor="@color/color_gray_active_games_text"
+            android:textSize="@dimen/fragment_2talk_counters_text_size"
+            tools:text="537k"/>
+
+        <ImageView
+            android:id="@+id/view_active_talk_likes_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_like_grey"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/view_active_talk_watchers_image_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="@dimen/indent_small"
+        android:layout_marginEnd="@dimen/indent_small"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/view_active_talk_watchers"
+            style="@style/Text.ActiveGame.Label"
+            android:layout_marginEnd="@dimen/indent_mini"
+            android:text="0"
+            android:textColor="@color/color_gray_active_games_text"
+            android:textSize="@dimen/fragment_2talk_counters_text_size"
+            tools:text="5k"/>
+
+        <ImageView
+            android:id="@+id/view_active_talk_watchers_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_follower_grey"/>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/mask_2_talk"
+        tools:visibility="gone"/>
+</RelativeLayout>
+

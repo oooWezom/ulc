@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:id="@+id/fragment_talk_user_search_root"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/color_white_panel">
+
+    <FrameLayout
+        android:id="@+id/talk_activity_random_user_button_frame"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/indent_medium"
+        android:layout_marginTop="@dimen/indent_small">
+
+        <LinearLayout
+            android:id="@+id/talk_activity_random_user_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/indent_medium"
+            android:layout_marginTop="@dimen/indent_small"
+            android:background="@drawable/selector_bg_transparent">
+
+            <FrameLayout
+                android:layout_width="@dimen/fragment_talk_search_user_progress_size"
+                android:layout_height="@dimen/fragment_talk_search_user_progress_size"
+                android:layout_gravity="center_vertical">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_random"/>
+
+                <me.zhanghai.android.materialprogressbar.MaterialProgressBar
+                android:id="@+id/talk_activity_random_search_progress"
+                style="@style/Widget.MaterialProgressBar.ProgressBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:visibility="gone"
+                tools:visibility="visible"/>
+
+            </FrameLayout>
+
+            <TextView
+                android:id="@+id/talk_activity_random_user_button_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="@dimen/indent_mini"
+                android:text="@string/random"
+                android:textColor="@color/color_black"/>
+        </LinearLayout>
+
+
+    </FrameLayout>
+
+    <View
+        android:id="@+id/talk_activity_search_divider_1"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/talk_activity_random_user_button_frame"
+        android:layout_marginEnd="@dimen/indent_small"
+        android:layout_marginStart="@dimen/indent_small"
+        android:layout_marginTop="@dimen/indent_small"
+        android:background="@color/color_black"/>
+
+    <FrameLayout
+        android:id="@+id/talk_activity_search_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/talk_activity_search_divider_1"
+        android:layout_marginEnd="@dimen/indent_medium"
+        android:layout_marginStart="@dimen/indent_medium"
+        android:layout_marginTop="@dimen/indent_medium"
+        android:background="@color/chat_input_color"
+        android:paddingStart="@dimen/indent_medium">
+
+        <EditText
+            android:id="@+id/talk_activity_search_input"
+            style="@style/ChatEditTextStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:hint="@string/username"
+            android:imeOptions="flagNoExtractUi"
+            android:padding="@dimen/view_chat_message_edit_text_padding"
+            android:textColorHint="@color/color_white"
+            android:theme="@style/ChatEditTextTheme"/>
+    </FrameLayout>
+
+    <View
+        android:id="@+id/talk_activity_search_divider_2"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/talk_activity_search_layout"
+        android:layout_marginEnd="@dimen/indent_small"
+        android:layout_marginStart="@dimen/indent_small"
+        android:layout_marginTop="@dimen/indent_medium"
+        android:background="@color/color_black"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/contentView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/talk_activity_search_divider_2"/>
+
+    <Button
+        android:id="@+id/talk_activity_search_close_button"
+        style="@style/SearchButtonStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/talk_activity_search_button_height"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="32dp"
+        android:text="@string/close"
+        android:textAllCaps="false"/>
+
+    <include
+        layout="@layout/view_error"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center"/>
+
+    <include
+    layout="@layout/layout_loading_view"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_centerInParent="true"
+    android:layout_gravity="center"/>
+
+    <include
+        layout="@layout/layout_empty_list"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"/>
+
+    <LinearLayout
+        android:id="@+id/talk_activity_search_hint_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/talk_activity_search_divider_2"
+        android:layout_marginTop="33dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_horizontal"
+            android:text="Start typing username\n or invite random\n interlocutor"/>
+
+        <ImageView
+            android:id="@+id/talk_activity_search_big_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="64dp"
+            android:src="@drawable/ic_big_search"/>
+    </LinearLayout>
+
+</RelativeLayout>

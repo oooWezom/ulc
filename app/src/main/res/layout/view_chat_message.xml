@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/view_game_message_bottom"
+                android:alpha="0.6">
+
+    <TextView
+        android:id="@+id/view_game_message_message_text"
+        style="@style/ChatItemsTextStyle"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="@dimen/indent_small"
+        tools:text="test text"/>
+</RelativeLayout>

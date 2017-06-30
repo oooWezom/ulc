@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="game_button_width">90dp</dimen>
+    <dimen name="game_button_height">30dp</dimen>
+    <dimen name="game_button_text_size">14sp</dimen>
+</resources>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.wezom.ulcv2.ui.view.PlayWebCamView
+        android:id="@+id/fragment_session_left_webcam_layout"
+        android:layout_height="0dp"
+        app:layout_aspectRatio="133.33%"
+        app:layout_widthPercent="49.85%"
+        app:webCamMode="talk"
+        app:webCamAlign="left" />
+
+    <View
+        android:id="@+id/fragment_session_webcam_separator_view"
+        android:layout_width="0dp"
+        android:layout_alignBottom="@id/activity_game_left_webcam_layout"
+        android:layout_alignTop="@id/activity_game_left_webcam_layout"
+        android:layout_toEndOf="@id/activity_game_left_webcam_layout"
+        android:background="@color/color_white"
+        app:layout_widthPercent="0.5%" />
+
+    <com.wezom.ulcv2.ui.view.PlayWebCamView
+        android:id="@+id/fragment_session_right_webcam_layout"
+        android:layout_height="0dp"
+        android:layout_toEndOf="@id/fragment_session_webcam_separator_view"
+        app:layout_aspectRatio="133.33%"
+        app:layout_widthPercent="49.85%"
+        app:webCamMode="talk"
+        app:webCamAlign="right" />
+
+</merge>

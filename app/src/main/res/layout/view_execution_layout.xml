@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:id="@+id/activity_game_right_execution_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignBottom="@+id/activity_game_left_webcam_layout"
+                android:layout_alignStart="@+id/fragment_session_right_webcam_layout"
+                android:layout_below="@+id/fragment_session_right_webcam_layout"
+                android:layout_toEndOf="@+id/fragment_session_right_webcam_layout"
+                android:background="@color/color_white"
+                android:gravity="center_vertical">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/view_execution_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginLeft="@dimen/indent_medium"
+            android:layout_marginRight="@dimen/indent_medium"
+            android:gravity="center_horizontal"
+            android:textSize="12sp"
+            tools:text="@string/you_are_winner"/>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal">
+
+            <Button
+                android:id="@+id/view_execution_done_button"
+                android:layout_width="50dp"
+                android:layout_height="26dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="@dimen/indent_small"
+                android:layout_marginRight="@dimen/indent_small"
+                android:background="@drawable/bg_button_done"
+                android:text="@string/ok"
+                android:textColor="@color/color_white"
+                android:visibility="gone"/>
+        </RelativeLayout>
+    </LinearLayout>
+</RelativeLayout>

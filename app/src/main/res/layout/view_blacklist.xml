@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@+id/view_blacklist_layout"
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/color_white">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.pkmmte.view.CircularImageView
+                android:layout_margin="@dimen/content_margin"
+                android:id="@+id/view_blacklist_avatar"
+                android:layout_width="@dimen/nav_icon_photo_size"
+                android:layout_height="@dimen/nav_icon_photo_size"
+                android:layout_centerVertical="true"
+                app:border="true"
+                app:border_color="@color/colorPrimary"
+                app:border_width="2dp"
+                app:shadow="true"/>
+
+            <TextView
+                android:id="@+id/view_blacklist_name_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/content_margin"
+                android:layout_toRightOf="@id/view_blacklist_avatar"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                tools:text="Husky"/>
+
+            <ImageView
+                android:id="@+id/view_blacklist_remove_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/content_margin"
+                android:src="@drawable/ic_delete"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/nav_divider_size"
+                android:layout_alignLeft="@+id/view_blacklist_name_text"
+                android:layout_alignParentBottom="false"
+                android:layout_below="@+id/view_blacklist_avatar"
+                android:background="@color/fragment_background_color"/>
+        </RelativeLayout>
+</RelativeLayout>

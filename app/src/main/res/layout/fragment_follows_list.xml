@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/fragment_background_color"
+              android:orientation="vertical">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/fragment_follows_list_search_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/indent_small"
+            android:background="@drawable/bg_search_edit_text"
+            android:hint="@string/search"
+            android:paddingBottom="@dimen/indent_small"
+            android:paddingLeft="@dimen/indent_small"
+            android:paddingRight="@dimen/indent_small"
+            android:paddingTop="@dimen/indent_small"
+            android:singleLine="true"
+            android:theme="@style/List.Header.Text"
+            app:fontPath="fonts/helveticaneuecyr_roman.ttf"/>
+
+        <ImageView
+            android:id="@+id/fragment_follows_list_clear_search_image_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignRight="@+id/fragment_follows_list_search_text_view"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/indent_small"
+            android:src="@drawable/ic_remove"/>
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/fragment_follows_list_count_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/indent_small"
+        android:paddingLeft="@dimen/indent_small"
+        android:paddingRight="@dimen/indent_small"
+        android:paddingTop="@dimen/indent_small"
+        android:theme="@style/List.Header.Text"
+        app:fontPath="fonts/helveticaneuecyr_roman.ttf"
+        tools:text="100"/>
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/contentView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/fragment_following_list_recycler"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/mdtp_background_color"
+            tools:listitem="@layout/view_follow">
+
+        </android.support.v7.widget.RecyclerView>
+
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+    <include
+        layout="@layout/view_error"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center"/>
+
+    <include
+        layout="@layout/layout_loading_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center"/>
+
+    <include
+        layout="@layout/layout_empty_list"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"/>
+
+
+</LinearLayout>

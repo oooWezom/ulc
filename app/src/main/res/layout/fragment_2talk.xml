@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/fragment_2play_background"
+                tools:context="com.wezom.ulcv2.ui.fragment.ToTalkFragment">
+
+    <include
+        android:id="@+id/fragment_2talk_toolbar"
+        layout="@layout/toolbar"/>
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/contentView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/fragment_2talk_toolbar">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/fragment_2talk_make_own_label"
+                style="@style/Text.2Play.Label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/indent_small"
+                android:layout_marginStart="@dimen/indent_medium"
+                android:layout_marginTop="@dimen/indent_small"
+                android:textAllCaps="true"
+                android:text="@string/make_own"/>
+
+            <View
+                android:id="@+id/divider"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/nav_divider_size"
+                android:layout_below="@+id/fragment_2talk_make_own_label"
+                android:background="@color/list_divider_color"/>
+
+            <com.balysv.materialripple.MaterialRippleLayout
+                android:id="@+id/fragment_2talk_ripple"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/divider"
+                app:mrl_rippleColor="@color/colorTextInactive"
+                app:mrl_rippleDimension="@dimen/ripple_size"
+                app:mrl_rippleHover="true"
+                app:mrl_rippleOverlay="true">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/fragment_2play_button_height"
+                    android:background="@color/color_white">
+
+                    <ImageView
+                        android:id="@+id/view_search_avatar_image"
+                        android:layout_width="@dimen/nav_icon_photo_size"
+                        android:layout_height="@dimen/nav_icon_photo_size"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="@dimen/indent_medium"
+                        android:layout_marginRight="@dimen/indent_medium"
+                        android:src="@drawable/ic_2talk_session"/>
+
+                    <LinearLayout
+                        android:id="@+id/view_search_info_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="@dimen/content_margin"
+                        android:layout_marginRight="@dimen/content_margin"
+                        android:layout_toLeftOf="@+id/view_search_status_image_view"
+                        android:layout_toRightOf="@id/view_search_avatar_image"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/view_search_name_text"
+                            style="@style/Follows.Header.Text"
+                            android:text="@string/to_talk_session"
+                            app:fontPath="fonts/helveticaneuecyr_roman.ttf"/>
+
+                        <TextView
+                            android:id="@+id/view_search_level"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/choose_category"
+                            android:theme="@style/Follows.Info.Text"
+                            app:fontPath="fonts/helveticaneuecyr_roman.ttf"/>
+                    </LinearLayout>
+
+                    <View
+                        android:id="@+id/divider1"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/nav_divider_size"
+                        android:layout_alignParentBottom="true"
+                        android:background="@color/list_divider_color"/>
+                </RelativeLayout>
+
+            </com.balysv.materialripple.MaterialRippleLayout>
+
+            <RelativeLayout
+                android:id="@+id/fragment_2talk_watch_layer"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/fragment_2play_button_height"
+                android:layout_below="@+id/fragment_2talk_ripple">
+
+                <TextView
+                    android:id="@+id/fragment_2play_watch_other_label"
+                    style="@style/Text.2Play.Label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/fragment_2play_ripple"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="@dimen/indent_medium"
+                    android:textAllCaps="true"
+                    android:text="@string/watch_other"/>
+
+                <TextView
+                    android:id="@+id/fragment_2talk_sessions_count_label"
+                    style="@style/Text.2Play.Label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="@dimen/indent_medium"
+                    tools:text="56800"/>
+
+                <View
+                    android:id="@+id/divider3"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/nav_divider_size"
+                    android:layout_alignParentBottom="true"
+                    android:background="@color/list_divider_color"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/fragment_2Talk_categories_layer"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/fragment_2talk_category_list_height"
+                android:layout_below="@+id/fragment_2talk_watch_layer"
+                android:background="@color/color_white">
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/fragment_2Talk_categories"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:foregroundGravity="center_vertical"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/nav_divider_size"
+                    android:layout_alignParentBottom="true"
+                    android:background="@color/list_divider_color"/>
+            </RelativeLayout>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/fragment_2talk_active_sessions_recycler"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/fragment_2Talk_categories_layer"
+                android:transitionName="@string/user_avatar_transition"
+                tools:listitem="@layout/view_active_talk"/>
+
+        </RelativeLayout>
+
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+    <android.support.percent.PercentFrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            app:layout_marginTopPercent="20%"
+            android:layout_height="match_parent">
+
+            <include
+                layout="@layout/view_error"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_gravity="center"/>
+
+            <include
+                layout="@layout/layout_loading_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_gravity="center"/>
+
+            <include
+                layout="@layout/layout_empty_list"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"/>
+        </FrameLayout>
+    </android.support.percent.PercentFrameLayout>
+
+</RelativeLayout>

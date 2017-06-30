@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/active_game_view_height"
+                android:background="@color/color_white">
+
+    <LinearLayout
+        android:id="@+id/view_active_game_webcam_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/view_active_game_left_webcam_image"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/view_active_game_webcam_image_height"
+                android:layout_weight="1"
+                android:scaleType="centerCrop"
+                tools:background="@color/cardview_shadow_start_color"/>
+
+            <TextView
+                android:id="@+id/view_active_game_left_name_text"
+                style="@style/Text.2Play.Label"
+                android:layout_below="@+id/view_active_game_left_webcam_image"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/content_margin"
+                android:textColor="@color/color_black"
+                app:fontPath="fonts/helveticaneuecyr_thin.otf"
+                tools:text="left name"/>
+
+            <com.github.siyamed.shapeimageview.CircularImageView
+                android:id="@+id/view_active_game_left_avatar_image"
+                android:layout_width="@dimen/view_active_game_avatar_image_width_height"
+                android:layout_height="@dimen/view_active_game_avatar_image_width_height"
+                android:layout_above="@+id/view_active_game_left_name_text"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="-8dp"
+                app:siBorderColor="@color/color_white"
+                app:siBorderWidth="2dp"
+                tools:src="@drawable/ic_arrow"/>
+
+            <TextView
+                android:id="@+id/view_active_game_left_level_text"
+                style="@style/Text.2Play.Label"
+                android:layout_below="@id/view_active_game_left_name_text"
+                android:layout_centerHorizontal="true"
+                android:textColor="@color/color_gray"
+                tools:text="44 lvl"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/view_active_game_right_layer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/view_active_game_right_webcam_image"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/view_active_game_webcam_image_height"
+                android:layout_weight="1"
+                android:scaleType="centerCrop"
+                tools:background="@color/avatar_progress_back"/>
+
+            <TextView
+                android:id="@+id/view_active_game_right_name_text"
+                style="@style/Text.2Play.Label"
+                android:layout_below="@+id/view_active_game_right_webcam_image"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/content_margin"
+                android:textColor="@color/color_black"
+                app:fontPath="fonts/helveticaneuecyr_thin.otf"
+                tools:text="Right name"/>
+
+            <com.github.siyamed.shapeimageview.CircularImageView
+                android:id="@+id/view_active_game_right_avatar_image"
+                android:layout_width="@dimen/view_active_game_avatar_image_width_height"
+                android:layout_height="@dimen/view_active_game_avatar_image_width_height"
+                android:layout_above="@+id/view_active_game_right_name_text"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="-8dp"
+                app:siBorderColor="@color/color_white"
+                app:siBorderWidth="2dp"
+                tools:src="@drawable/ic_arrow"/>
+
+            <TextView
+                android:id="@+id/view_active_game_right_level_text"
+                style="@style/Text.2Play.Label"
+                android:layout_below="@id/view_active_game_right_name_text"
+                android:layout_centerHorizontal="true"
+                android:textColor="@color/color_gray"
+                tools:text="55 lvl"/>
+
+            <TextView
+                android:id="@+id/view_active_game_likes_right"
+                style="@style/Text.ActiveGame.Label"
+                android:layout_below="@id/view_active_game_right_name_text"
+                android:layout_marginEnd="@dimen/indent_mini"
+                android:textSize="@dimen/fragment_2talk_counters_text_size"
+                android:layout_toStartOf="@+id/view_active_game_likes_image_right"
+                android:text="0"
+                android:textColor="@color/color_gray_active_games_text"
+                tools:text="537k"/>
+
+            <ImageView
+                android:id="@+id/view_active_game_likes_image_right"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_below="@id/view_active_game_right_name_text"
+                android:layout_marginEnd="@dimen/indent_medium"
+                android:src="@drawable/ic_like_grey"/>
+
+        </RelativeLayout>
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/view_active_game_icon"
+        android:layout_width="@dimen/view_active_game_icon_size"
+        android:layout_height="@dimen/view_active_game_icon_size"
+        android:layout_below="@id/view_active_game_webcam_layout"
+        android:layout_marginBottom="@dimen/indent_small"
+        android:layout_marginStart="@dimen/indent_medium"
+        android:src="@drawable/ic_choose_random"/>
+
+    <TextView
+        android:id="@+id/view_active_game_game_name_text"
+        style="@style/Text.2Play.Label"
+        android:layout_below="@id/view_active_game_webcam_layout"
+        android:layout_marginStart="@dimen/indent_small"
+        android:layout_marginTop="@dimen/indent_small"
+        android:layout_toEndOf="@+id/view_active_game_icon"
+        android:textColor="@color/color_gray"
+        tools:text="X-Cows"/>
+
+    <TextView
+        android:id="@+id/view_active_game_watchers"
+        style="@style/Text.ActiveGame.Label"
+        android:textSize="@dimen/fragment_2talk_counters_text_size"
+        android:layout_below="@id/view_active_game_webcam_layout"
+        android:layout_marginEnd="@dimen/indent_mini"
+        android:layout_marginTop="@dimen/indent_small"
+        android:layout_toStartOf="@+id/view_active_game_watchers_image_right"
+        android:textColor="@color/color_gray_active_games_text"
+        tools:text="537k"/>
+
+    <ImageView
+        android:id="@+id/view_active_game_watchers_image_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@id/view_active_game_webcam_layout"
+        android:layout_marginEnd="@dimen/indent_medium"
+        android:layout_marginTop="@dimen/indent_small"
+        android:src="@drawable/ic_follower_grey"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/mask_ag"
+        tools:visibility="gone"/>
+</RelativeLayout>
+

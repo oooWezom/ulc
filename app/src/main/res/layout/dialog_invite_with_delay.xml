@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="@dimen/indent_medium">
+
+    <ImageView
+        android:id="@+id/dialog_with_delay_category_image"
+        android:layout_width="@dimen/category_item_icon_size"
+        android:layout_height="@dimen/category_item_icon_size"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        tools:src="@drawable/ic_default_user_avatar"/>
+
+    <TextView
+        android:id="@+id/dialog_with_delay_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/indent_medium"
+        android:layout_toLeftOf="@+id/dialog_with_delay_category_image"
+        android:layout_toRightOf="@+id/dialog_with_delay_progress_view"
+        android:textAppearance="@android:style/TextAppearance.Small"
+        android:textColor="@color/color_black"
+        app:fontPath="fonts/helveticaneuecyr_roman.ttf"
+        tools:text="Test message, maybe it will be useful, but mostly not..."/>
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/dialog_with_delay_text_view"
+        android:layout_alignStart="@+id/dialog_with_delay_text_view"
+        android:layout_below="@+id/dialog_with_delay_text_view">
+
+        <EditText
+            android:id="@+id/dialog_with_delay_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_input_black_border"
+            android:hint="@string/minutes"
+            android:inputType="number"
+            android:paddingStart="@dimen/indent_medium"
+            android:singleLine="true"
+            android:theme="@style/Edittext.ThemeColor"
+            android:visibility="gone"
+            app:fontPath="fonts/helveticaneuecyr_roman.ttf"
+            tools:visibility="visible"/>
+
+    </android.support.design.widget.TextInputLayout>
+
+    <com.wezom.ulcv2.ui.view.RadialProgressView
+        android:id="@+id/dialog_with_delay_progress_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+</RelativeLayout>

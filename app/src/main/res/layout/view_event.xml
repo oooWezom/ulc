@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="76dp"
+              android:gravity="center_vertical"
+              android:orientation="vertical"
+              android:paddingTop="4dp">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/nav_divider_size"
+        android:layout_alignParentTop="true"
+        android:background="@color/list_divider_color"/>
+
+    <com.balysv.materialripple.MaterialRippleLayout
+        android:id="@+id/fragment_event_ripple_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:mrl_rippleColor="@color/colorTextInactive"
+        app:mrl_rippleDimension="@dimen/ripple_size"
+        app:mrl_rippleHover="true"
+        app:mrl_rippleOverlay="true">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_marginBottom="2dp"
+            android:background="@color/color_white">
+
+            <ImageView
+                android:id="@+id/view_newsfeed_image_view"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_centerVertical="true"
+                android:paddingBottom="@dimen/indent_small"
+                android:paddingLeft="@dimen/indent_small"
+                android:paddingTop="@dimen/indent_small"
+                android:src="@drawable/ic_web_small"/>
+
+            <TextView
+                android:id="@+id/view_event_date_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="@dimen/indent_mini"
+                android:padding="@dimen/indent_small"
+                android:textColor="@color/event_info_text_color"
+                android:textSize="10sp"
+                app:fontPath="fonts/helveticaneuecyr_roman.ttf"
+                tools:text="10.02.1995"/>
+
+            <TextView
+                android:id="@+id/view_newsfeed_follows"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/view_event_center_image_view"
+                android:layout_alignEnd="@+id/view_event_date_text"
+                android:layout_alignTop="@+id/view_newsfeed_followers_view"
+                android:layout_marginRight="@dimen/indent_mini"
+                android:drawableRight="@drawable/ic_follower"
+                android:gravity="center_vertical"
+                android:paddingTop="4sp"
+                android:text="0"
+                android:textColor="@color/event_info_text_color"
+                android:textSize="10sp"
+                app:fontPath="fonts/helveticaneuecyr_roman.ttf"/>
+
+            <com.github.siyamed.shapeimageview.CircularImageView
+                android:id="@+id/view_event_center_image_view"
+                android:layout_width="56dp"
+                android:layout_height="match_parent"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="8dp"
+                android:src="@drawable/ic_follower"
+                app:siBorderColor="@color/colorPrimary"
+                app:siBorderWidth="@dimen/circular_border_padding"/>
+
+            <com.wezom.ulcv2.ui.view.FollowersView
+                android:id="@+id/view_newsfeed_followers_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/view_event_center_image_view"
+                android:layout_marginBottom="-1dp"
+                android:layout_marginLeft="-23dp"
+                android:layout_toRightOf="@+id/view_event_center_image_view"/>
+
+            <LinearLayout
+                android:id="@+id/view_event_own_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/view_event_center_image_view"
+                android:layout_alignTop="@+id/view_event_center_image_view"
+                android:layout_toEndOf="@+id/view_newsfeed_image_view"
+                android:layout_toStartOf="@+id/view_event_center_image_view"
+                android:gravity="right|center_vertical"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/view_event_lvl_up_text_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/event_info_text_color"
+                    android:textSize="11sp"
+                    app:fontPath="fonts/helveticaneuecyr_roman.ttf"
+                    tools:text="get lvl up"/>
+
+                <TextView
+                    android:id="@+id/view_event_left_name_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="marquee"
+                    android:gravity="right"
+                    android:maxWidth="100dp"
+                    android:singleLine="true"
+                    android:textColor="@color/event_header_text_color"
+                    android:textSize="15sp"
+                    app:fontPath="fonts/helveticaneuecyr_roman.ttf"
+                    tools:text="fdsdffssvggg"/>
+
+                <TextView
+                    android:id="@+id/view_event_lvl_count_text_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/event_info_text_color"
+                    android:textSize="11sp"
+                    app:fontPath="fonts/helveticaneuecyr_roman.ttf"
+                    tools:text="+25"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/view_event_status_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="false"
+                android:layout_alignTop="@+id/view_event_own_layout"
+                android:layout_marginLeft="@dimen/indent_mini"
+                android:layout_marginTop="7dp"
+                android:layout_toRightOf="@+id/view_event_center_image_view"
+                android:textColor="@color/event_info_text_color"
+                android:textSize="11sp"
+                app:fontPath="fonts/helveticaneuecyr_roman.ttf"
+                tools:text="gup"/>
+
+            <LinearLayout
+                android:id="@+id/view_event_opponent_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/view_event_status_text_view"
+                android:layout_marginLeft="@dimen/indent_mini"
+                android:layout_toRightOf="@+id/view_newsfeed_followers_view"
+                android:gravity="left"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/view_event_right_name_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/view_event_center_image_view"
+                    android:singleLine="true"
+                    android:textColor="@color/event_header_text_color"
+                    android:textSize="15sp"
+                    app:fontPath="fonts/helveticaneuecyr_roman.ttf"
+                    tools:text="sdfsdf"/>
+
+                <TextView
+                    android:id="@+id/view_event_opponent_lvl_text_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/event_info_text_color"
+                    android:textSize="11sp"
+                    app:fontPath="fonts/helveticaneuecyr_roman.ttf"
+                    tools:text="sdffds"/>
+
+            </LinearLayout>
+
+        </RelativeLayout>
+    </com.balysv.materialripple.MaterialRippleLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/nav_divider_size"
+        android:layout_alignParentBottom="true"
+        android:background="@color/list_divider_color"/>
+
+</LinearLayout>

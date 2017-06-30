@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:app="http://schemas.android.com/apk/res-auto"
+             xmlns:tools="http://schemas.android.com/tools"
+             android:layout_width="@dimen/category_item_size"
+             android:layout_height="@dimen/category_item_size"
+             android:layout_margin="@dimen/indent_micro"
+             tools:background="@color/colorPrimaryDark">
+
+    <ImageView
+        android:id="@+id/view_category_item_choose_circle"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:layout_margin="@dimen/indent_mini"
+        android:src="@drawable/shape_bg_category"
+        android:visibility="gone"
+        tools:visibility="visible"/>
+
+    <com.balysv.materialripple.MaterialRippleLayout
+        android:id="@+id/view_category_item_ripple_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:padding="@dimen/indent_mini"
+        app:mrl_rippleColor="@color/colorTextInactive"
+        app:mrl_rippleDimension="@dimen/ripple_size"
+        app:mrl_rippleHover="true"
+        app:mrl_rippleOverlay="true">
+
+        <ImageView
+            android:id="@+id/view_category_item_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            tools:src="@drawable/ic_choose_random"/>
+
+    </com.balysv.materialripple.MaterialRippleLayout>
+
+</FrameLayout>

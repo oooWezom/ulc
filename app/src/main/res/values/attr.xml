@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="EditTextView">
+        <attr name="text" format="string"/>
+        <attr name="hintText" format="string"/>
+        <attr name="errorImage" format="boolean"/>
+        <attr name="singleLine" format="boolean"/>
+        <attr name="hasClear" format="boolean"/>
+        <attr name="inputId" format="integer"/>
+        <attr name="android:inputType"/>
+    </declare-styleable>
+
+    <declare-styleable name="RangeSeekBar">
+        <attr name="absoluteMinValue" format="integer|float"/>
+        <attr name="absoluteMaxValue" format="integer|float"/>
+        <attr name="singleThumb" format="boolean"/>
+    </declare-styleable>
+
+    <declare-styleable name="CircleProgressBar">
+        <attr name="min" format="integer" />
+        <attr name="max" format="integer" />
+        <attr name="progress" format="integer" />
+        <attr name="progressbarColor" format="color" />
+        <attr name="progressBarThickness" format="dimension" />
+    </declare-styleable>
+
+    <declare-styleable name="FixedAspectRatioFrameLayout">
+        <attr name="aspectRatioWidth" format="integer"/>
+        <attr name="aspectRatioHeight" format="integer"/>
+    </declare-styleable>
+
+    <declare-styleable name="WebCamViewStyleable">
+        <attr name="webCamAlign" format="enum">
+            <enum name="left" value="0"/>
+            <enum name="right" value="1"/>
+            <enum name="single" value="2"/>
+            <enum name="execution" value="3"/>
+        </attr>
+
+        <attr name="webCamMode" format="enum">
+            <enum name="game" value="0"/>
+            <enum name="talk" value="1"/>
+        </attr>
+    </declare-styleable>
+
+</resources>
